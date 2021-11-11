@@ -1,7 +1,7 @@
 import { Button } from './styles'
-const PatternButton: React.FC<{ bgColor?: string, txColor?: string }> = (props) => {
+const PatternButton: React.FC<{ bgColor?: string, txColor?: string, gameButton?: boolean }> = (props) => {
     return (
-        <Button bgColor={props.bgColor} txColor={props.txColor}>{props.children}</Button>
+        <Button gameButton={props.gameButton} bgColor={props.bgColor} txColor={props.txColor}>{props.children}</Button>
     )
 }
 

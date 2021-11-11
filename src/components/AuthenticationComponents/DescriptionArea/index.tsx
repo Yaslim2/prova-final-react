@@ -1,4 +1,4 @@
-import PatternButton from '../UI/PatternButton';
+import PatternButton from '../../UI/PatternButton';
 import { DescriptionContainerArea, TextDescriptionHigher, DescriptionTextArea, TextDescription } from './styles'
 const DescriptionArea: React.FC = (props) => {
     return (
