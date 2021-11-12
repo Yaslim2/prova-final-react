@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ContainerGamesHistory = styled.div`
-  padding: 20px 40px;
+  padding: 20px 50px;
   flex-direction: column;
   display: flex;
   flex-direction: row;

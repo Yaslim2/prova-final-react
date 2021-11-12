@@ -8,7 +8,7 @@ const DescriptionArea: React.FC = (props) => {
                 <TextDescription>Greatest</TextDescription>
                 <TextDescription>App</TextDescription>
             </DescriptionTextArea>
-            <PatternButton bgColor="#B5C401">for</PatternButton>
+            <PatternButton color="#B5C401" isActive>for</PatternButton>
             <TextDescriptionHigher>LOTTERY</TextDescriptionHigher>
         </DescriptionContainerArea>
     )

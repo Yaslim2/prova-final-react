@@ -1,15 +1,16 @@
 import styled from "styled-components";
 
 type PatternButtonProps = {
-  bgColor: string | undefined;
-  txColor: string | undefined;
+  activeColor: string | undefined;
   gameButton: boolean | undefined;
+  isActive: boolean | undefined;
 };
 
 export const Button = styled.button<PatternButtonProps>`
   cursor: ${(props) => (props.gameButton ? "pointer" : "")};
-  background-color: ${(props) => (props.bgColor ? props.bgColor : "#fff")};
-  border: ${(props) => (props.txColor ? `2px solid ${props.txColor}` : "none")};
+  background-color: ${(props) => (props.isActive ? props.activeColor : "#fff")};
+  border: ${(props) =>
+    !props.isActive ? `2px solid ${props.activeColor}` : "none"};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,6 +22,6 @@ export const Button = styled.button<PatternButtonProps>`
   text-align: center;
   font-weight: bold;
   border-radius: 100px;
-  color: ${(props) => (props.txColor ? props.txColor : "#fff")};
+  color: ${(props) => (props.isActive ? "#Fff" : props.activeColor)};
   margin: 15px 0px;
 `;

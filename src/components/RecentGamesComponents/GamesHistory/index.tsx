@@ -1,13 +1,25 @@
 import { ContainerGamesHistory, BeforeGamesHistory, DetailsArea, GameDateText, NumbersSelectedText, TypeGameText } from './styles'
-const GamesHistory: React.FC = (props) => {
+type GamesHistoryProps = {
+    numbersSelected: number[];
+    dateGame: Date;
+    priceGame: number;
+    type: string;
+}
+
+const convertToReal = (val: number): string => {
+    return val.toFixed(2).toString().replace('.', ',');
+}
+
+const GamesHistory: React.FC<GamesHistoryProps> = (props) => {
+    const priceReal = convertToReal(props.priceGame)
     return (
         <>
             <ContainerGamesHistory>
                 <BeforeGamesHistory />
                 <DetailsArea>
                     <NumbersSelectedText>01,02,03,04,05,06</NumbersSelectedText>
-                    <GameDateText>30/11/2020 - (R$ 2,50)</GameDateText>
-                    <TypeGameText>Lotofácil</TypeGameText>
+                    <GameDateText>{props.dateGame.toLocaleDateString('pt-BR')} - (R$ {priceReal})</GameDateText>
+                    <TypeGameText>{props.type}</TypeGameText>
                 </DetailsArea>
             </ContainerGamesHistory>
         </>

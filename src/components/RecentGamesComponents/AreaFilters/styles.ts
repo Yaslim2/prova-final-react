@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const AreaFilterContainer = styled.div`
   display: flex;
   align-items: center;
-  padding: 20px 40px;
+  padding: 20px 50px;
   justify-content: space-between;
 `;
 

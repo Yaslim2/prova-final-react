@@ -5,6 +5,7 @@ import LoginPage from "../pages/Login";
 import ResetPasswordPage from "../pages/ResetPassword";
 import SignUpPage from "../pages/SignUp";
 import RecentGamesPage from '../pages/RecentGames'
+import NewBetPage from "../pages/NewBet";
 
 const Routes: React.FC = (props) => {
     return (
@@ -21,6 +22,9 @@ const Routes: React.FC = (props) => {
                 </Route>
                 <Route path="/:userId/recent-games" exact>
                     <RecentGamesPage />
+                </Route>
+                <Route path="/:userId/new-bet" exact>
+                    <NewBetPage />
                 </Route>
             </Switch>
             <GlobalStyle />
