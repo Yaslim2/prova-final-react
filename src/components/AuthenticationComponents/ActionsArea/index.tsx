@@ -5,9 +5,9 @@ import ButtonBack from '../ButtonBack'
 import Form from '../Form'
 
 const ActionsArea: React.FC<{
-    renderForgotPassword?: boolean, title: string,
-    isLogin?: boolean, isEmail?: boolean, isPassword?: boolean,
-    isName?: boolean, buttonText: string
+    title: string,
+    isLogin?: boolean, buttonText: string, isSignUp?: boolean;
+    isResetPassword?: boolean
 }> = (props) => {
     const history = useHistory();
     const handleSignUp = () => {
@@ -21,7 +21,7 @@ const ActionsArea: React.FC<{
     return (
         <AuthenticationArea>
             <AuthenticationText>{props.title}</AuthenticationText>
-            <Form textButton={props.buttonText} renderEmail={props.isEmail} renderPassword={props.isPassword} renderName={props.isName} renderForgotPassword={props.renderForgotPassword} />
+            <Form textButton={props.buttonText} isLogin={props.isLogin} isResetPassword={props.isResetPassword} isSignUp={props.isSignUp} />
             {props.isLogin ? <ButtonSignUp onSignUp={handleSignUp} /> : <ButtonBack onBackPage={handleBackPage} />}
         </AuthenticationArea>
     )

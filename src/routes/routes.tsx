@@ -20,10 +20,10 @@ const Routes: React.FC = (props) => {
                 <Route path="/reset-password">
                     <ResetPasswordPage />
                 </Route>
-                <Route path="/:userId/recent-games" exact>
+                <Route path="/user/recent-games" exact>
                     <RecentGamesPage />
                 </Route>
-                <Route path="/:userId/new-bet" exact>
+                <Route path="/user/new-bet" exact>
                     <NewBetPage />
                 </Route>
             </Switch>

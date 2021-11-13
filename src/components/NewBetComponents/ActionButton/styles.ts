@@ -20,3 +20,7 @@ export const ActionButtonContainer = styled.button<ActionButtonProps>`
   background-color: ${(props) => (props.isAddToCart ? "#27c383" : "#fff")};
   color: ${(props) => (props.isAddToCart ? "#fff" : "#27c383")};
 `;
+
+export const ShoppingCartImage = styled.img`
+  height: 25px;
+`;

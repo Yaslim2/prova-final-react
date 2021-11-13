@@ -7,7 +7,7 @@ const SignUpPage: React.FC = () => {
         <PageWrapper isCentered>
             <DescriptionArea />
             <ActionsArea
-                buttonText='Register' title='Registration' isEmail isName isPassword
+                buttonText='Register' title='Registration' isSignUp
             />
         </PageWrapper>
     )

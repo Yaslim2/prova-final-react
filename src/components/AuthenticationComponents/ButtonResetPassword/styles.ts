@@ -1,6 +1,8 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-export const ResetPasswordButton = styled.button`
+export const ResetPasswordButton = styled(Link)`
+  text-decoration: none;
   cursor: pointer;
   display: flex;
   align-items: center;

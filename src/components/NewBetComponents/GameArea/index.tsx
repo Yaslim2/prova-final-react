@@ -1,33 +1,26 @@
 import { LeftActionsButtons, ActionsButtonsArea, GameContainer, BallsArea, BetText, SpanBetText, ChooseAGameText, AreaGameButtons, FillYourBetText, DescriptionGameText } from './styles'
-import React, { useState } from 'react'
-import gamesJson from '../../../assets/data/games.json'
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { gameActions } from '../../../store/gameSlice'
+import { RootState } from '../../../store'
 import PatternButton from '../../UI/PatternButton'
 import Balls from '../Balls'
 import ActionButton from '../ActionButton'
-type GameType = {
-    type: string
-    description: string;
-    range: number;
-    price: number;
-    "max-number": number;
-    color: string;
-}
-
 
 const GameArea: React.FC = () => {
-    const [activeGame, setActiveGame] = useState<GameType>(gamesJson.types[0]);
+    const { selectGame } = gameActions;
+    const dispatch = useDispatch();
+    const actualGame = useSelector((state: RootState) => state.game.actualGame);
+    const avaiableGames = useSelector((state: RootState) => state.game.avaiableGames);
+    const avaiableBalls = useSelector((state: RootState) => state.game.avaiableBalls);
 
-
-    const handleClickPatternButton = (e: React.MouseEvent) => {
-        gamesJson.types.forEach((val) => {
-            if (val.type === e.currentTarget.textContent) {
-                setActiveGame(val);
-
-            }
-        })
+    const handleSelectGame = (event: React.MouseEvent) => {
+        const gameType = event.currentTarget.textContent;
+        dispatch(selectGame({ gameType }))
     }
-    const gameButtons = gamesJson.types.map((val, index) => <PatternButton isActive={val.type === activeGame.type} onClick={handleClickPatternButton} key={index} color={val.color} gameButton>{val.type}</PatternButton>);
-    const balls = Array(activeGame.range).fill(0).map((_, index) => <Balls>{index < 9 ? '0' + (index + 1) : index + 1}</Balls>)
+
+    const gameButtons = avaiableGames.map((val, index) => <PatternButton isActive={val.type === actualGame.type} onClick={handleSelectGame} key={index} color={val.color} gameButton>{val.type}</PatternButton>);
+    const balls = avaiableBalls.map((val) => <Balls key={val}>{val < 9 ? '0' + (val + 1) : val + 1}</Balls>)
     return (
         <GameContainer>
             <BetText>NEW BET <SpanBetText>FOR MEGA-SENA</SpanBetText></BetText>
@@ -36,7 +29,7 @@ const GameArea: React.FC = () => {
                 {gameButtons}
             </AreaGameButtons>
             <FillYourBetText>Fill your bet</FillYourBetText>
-            <DescriptionGameText>{activeGame.description}</DescriptionGameText>
+            <DescriptionGameText>{actualGame.description}</DescriptionGameText>
             <BallsArea>{balls}</BallsArea>
             <ActionsButtonsArea>
                 <LeftActionsButtons>

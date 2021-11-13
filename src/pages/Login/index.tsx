@@ -7,8 +7,7 @@ const LoginPage: React.FC = () => {
         <PageWrapper isCentered>
             <DescriptionArea />
             <ActionsArea
-                buttonText='Log In' title='Authentication' isEmail isPassword
-                isLogin renderForgotPassword
+                buttonText='Log In' title='Authentication' isLogin
             />
         </PageWrapper>
     )

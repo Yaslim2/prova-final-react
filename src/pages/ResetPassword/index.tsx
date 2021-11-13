@@ -7,7 +7,7 @@ const ResetPasswordPage: React.FC = () => {
         <PageWrapper isCentered>
             <DescriptionArea />
             <ActionsArea
-                buttonText='Send link' title='Reset password' isEmail
+                buttonText='Send link' title='Reset password' isResetPassword
             />
         </PageWrapper>
     )

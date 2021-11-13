@@ -1,7 +1,7 @@
 import { ResetPasswordButton, ResetPasswordText } from './styles'
-const ButtonResetPassword: React.FC<{ onResetPassword: () => void }> = (props) => {
+const ButtonResetPassword: React.FC = (props) => {
     return (
-        <ResetPasswordButton onClick={props.onResetPassword}>
+        <ResetPasswordButton to="/reset-password">
             <ResetPasswordText>I forgot my password</ResetPasswordText>
         </ResetPasswordButton>
     )

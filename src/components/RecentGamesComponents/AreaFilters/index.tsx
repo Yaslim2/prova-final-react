@@ -20,10 +20,10 @@ import { AreaFilterContainer, FilterButtons, RecentGamesText, FilterText } from 
 //     "max-number": number;
 //     color: string;
 // }
-const AreaFilters: React.FC<{ idUser?: string }> = (props) => {
+const AreaFilters: React.FC<{ userName?: string }> = (props) => {
     const history = useHistory()
     const handleNewBet = () => {
-        history.push(`/${props.idUser}/new-bet`)
+        history.push('new-bet')
     }
 
     return (
