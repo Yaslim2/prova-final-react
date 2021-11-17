@@ -16,7 +16,7 @@ export const BeforeGamesHistory = styled.div`
   background-color: #7f3992;
 `;
 
-export const DetailsArea = styled.div`
+export const DetailsContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;

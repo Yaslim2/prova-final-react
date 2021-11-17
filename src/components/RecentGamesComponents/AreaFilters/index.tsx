@@ -1,40 +1,46 @@
 import { useHistory } from "react-router";
-import gamesJson from '../../../assets/data/games.json'
 import PatternButton from "../../UI/PatternButton";
 import MainButton from "../../UI/MainButton";
-
+import { useSelector, useDispatch } from "react-redux";
+import { gameActions } from '../../../store/gameSlice/index'
 import { AreaFilterContainer, FilterButtons, RecentGamesText, FilterText } from './styles'
+import { RootState } from "../../../store";
+import React from "react";
 
-// type TypeJsonGames = {
-//     "min-cart-value": number;
-//     types: ArrayGameType
-// }
-
-// type ArrayGameType = GameType[]
-
-// type GameType = {
-//     type: string
-//     description: string;
-//     range: number;
-//     price: number;
-//     "max-number": number;
-//     color: string;
-// }
 const AreaFilters: React.FC<{ userName?: string }> = (props) => {
+    const dispatch = useDispatch();
+    const { filterGame } = gameActions;
+    const avaiableGames = useSelector((state: RootState) => state.game.avaiableGames);
+    const filter = useSelector((state: RootState) => state.game.filteredGame);
     const history = useHistory()
     const handleNewBet = () => {
         history.push('new-bet')
     }
+    const handleFilterGame = (event: React.MouseEvent) => {
+        const gameType = event.currentTarget.textContent;
+        dispatch(filterGame({ gameType }));
+    }
 
+    const gameButtons = avaiableGames.map((game, index) => {
+        return (
+            <PatternButton
+                onFilter={handleFilterGame}
+                key={index}
+                isActive={game.type === filter}
+                color={game.color}
+                gameButton
+            >
+                {game.type}
+            </PatternButton>
+        )
+    })
     return (
         <>
             <AreaFilterContainer>
                 <FilterButtons>
                     <RecentGamesText>RECENT GAMES</RecentGamesText>
                     <FilterText>Filters</FilterText>
-                    {gamesJson.types.map((val, index) => {
-                        return <PatternButton key={index} color={val.color} gameButton>{val.type}</PatternButton>
-                    })}
+                    {gameButtons}
                 </FilterButtons>
                 <MainButton onNewBet={handleNewBet}>New Bet</MainButton>
 

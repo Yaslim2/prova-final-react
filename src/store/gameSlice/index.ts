@@ -16,6 +16,7 @@ interface GameSliceState {
   selectedBalls: number[];
   notSelectedBalls: number[];
   minValue: number;
+  filteredGame: string | null;
 }
 
 const generateArray = (range: number) => {
@@ -34,6 +35,7 @@ const initialState: GameSliceState = {
   selectedBalls: [],
   notSelectedBalls: [...initialBalls],
   minValue: gamesJson["min-cart-value"],
+  filteredGame: null,
 };
 
 const gameSlice = createSlice({
@@ -95,6 +97,21 @@ const gameSlice = createSlice({
     clearGame: (state) => {
       state.selectedBalls = [];
       state.notSelectedBalls = generateArray(state.actualGame.range);
+    },
+    filterGame: (state, action: PayloadAction<{ gameType: string | null }>) => {
+      const gameToBeFiltered = state.avaiableGames.find(
+        (game) => game.type === action.payload.gameType
+      );
+      const isAlreadyFiltered = gameToBeFiltered?.type === state.filteredGame;
+      if (isAlreadyFiltered) {
+        state.filteredGame = null;
+        return;
+      }
+      state.filteredGame = gameToBeFiltered!.type;
+    },
+    resetGame: (state) => {
+      state.actualGame = initialState.actualGame;
+      state.filteredGame = null;
     },
   },
 });

@@ -1,5 +1,6 @@
 import arrowRightGray from '../../../assets/img/arrow-right-gray.svg'
 import { userActions } from '../../../store/userSlice'
+import { gameActions } from '../../../store/gameSlice'
 import { useHistory } from 'react-router'
 import { useDispatch } from 'react-redux'
 
@@ -7,10 +8,16 @@ import { Header, CustomizedLink, NavBarContainer, LeftSideNavBar, LogoText, Righ
 const NavBar: React.FC = () => {
     const dispatch = useDispatch();
     const history = useHistory();
+    const { resetGame } = gameActions;
     const { logOut } = userActions
     const handleLogOut = () => {
         dispatch(logOut());
+        dispatch(resetGame());
         history.replace('/');
+    }
+
+    const handleBackToHome = () => {
+        dispatch(resetGame());
     }
 
     return (
@@ -18,7 +25,7 @@ const NavBar: React.FC = () => {
             <NavBarContainer>
                 <LeftSideNavBar>
                     <LogoText>TGL</LogoText>
-                    <CustomizedLink to="">Home</CustomizedLink>
+                    <CustomizedLink onClick={handleBackToHome} to="/user/recent-games">Home</CustomizedLink>
                 </LeftSideNavBar>
                 <RightSideNavBar>
                     <CustomizedLink to="">Account</CustomizedLink>

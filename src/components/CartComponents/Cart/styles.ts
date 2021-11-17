@@ -7,6 +7,7 @@ export const CartArea = styled.div`
 export const CartItemsArea = styled.div`
   padding: 25px;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
 `;
 

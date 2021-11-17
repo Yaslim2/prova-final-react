@@ -36,6 +36,7 @@ const GameArea: React.FC = (props) => {
             id: new Date().getTime().toString(),
             gameType: actualGame.type,
             gamePrice: actualGame.price,
+            mainColor: actualGame.color
         }
         dispatch(addToCart(item))
         dispatch(clearGame());
@@ -49,12 +50,13 @@ const GameArea: React.FC = (props) => {
     const gameButtons = avaiableGames.map((val, index) =>
         <PatternButton
             isActive={val.type === actualGame.type}
-            onClick={handleSelectGame} key={index}
-            color={val.color} gameButton>
+            onSelect={handleSelectGame} key={index}
+            color={val.color} gameButton
+        >
             {val.type}
         </PatternButton>
     );
-    const balls = avaiableBalls.map((val) => <Balls key={val}>{val < 9 ? '0' + (val) : val}</Balls>)
+    const balls = avaiableBalls.map((val) => <Balls key={val}>{val <= 9 ? '0' + (val) : val}</Balls>)
     return (
         <GameContainer>
             <BetText>NEW BET <SpanBetText>FOR {actualGame.type.toUpperCase()}</SpanBetText></BetText>

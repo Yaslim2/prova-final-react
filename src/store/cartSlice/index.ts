@@ -5,6 +5,7 @@ interface ItemCart {
   gameType: string;
   gamePrice: number;
   id: string;
+  mainColor: string;
 }
 
 interface CartSliceState {
@@ -27,15 +28,22 @@ const cartSlice = createSlice({
         gameType: action.payload.gameType,
         gamePrice: action.payload.gamePrice,
         id: action.payload.id,
+        mainColor: action.payload.mainColor,
       };
       state.items.push(item);
       state.totalPrice += action.payload.gamePrice;
     },
     removeFromCart: (state, action: PayloadAction<{ id: string }>) => {
       state.items = state.items.filter((item) => {
-        state.totalPrice -= item.gamePrice;
+        if (item.id === action.payload.id) {
+          state.totalPrice -= item.gamePrice;
+        }
         return item.id !== action.payload.id;
       });
+    },
+    clearCart: (state) => {
+      state.items = [];
+      state.totalPrice = 0;
     },
   },
 });

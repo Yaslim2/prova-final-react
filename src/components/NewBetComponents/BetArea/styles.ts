@@ -10,4 +10,5 @@ export const BetContainer = styled.div`
   width: 65%;
   justify-content: space-between;
   align-items: center;
+  height: 100%;
 `;

@@ -1,26 +1,20 @@
-import { ContainerGamesHistory, BeforeGamesHistory, DetailsArea, GameDateText, NumbersSelectedText, TypeGameText } from './styles'
-type GamesHistoryProps = {
-    numbersSelected: number[];
-    dateGame: Date;
-    priceGame: number;
-    type: string;
-}
-
-const convertToReal = (val: number): string => {
-    return val.toFixed(2).toString().replace('.', ',');
-}
-
-const GamesHistory: React.FC<GamesHistoryProps> = (props) => {
-    const priceReal = convertToReal(props.priceGame)
+import { ContainerGamesHistory, DetailsContainer } from './styles'
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../store';
+import GameItem from '../GameItem';
+const GamesHistory: React.FC = (props) => {
+    const userGames = useSelector((state: RootState) => state.user.actualUser?.games);
+    const filter = useSelector((state: RootState) => state.game.filteredGame);
+    const gamesItems = userGames?.map((game, index) => <GameItem key={index} mainColor={game.color} numbers={game.numbersSelected} date={game.date} price={game.price} type={game.type} />)
+    const filteredGames = userGames?.map((game, index) => {
+        return filter === game.type ? <GameItem key={index} mainColor={game.color} numbers={game.numbersSelected} date={game.date} price={game.price} type={game.type} /> : null
+    })
     return (
         <>
             <ContainerGamesHistory>
-                <BeforeGamesHistory />
-                <DetailsArea>
-                    <NumbersSelectedText>01,02,03,04,05,06</NumbersSelectedText>
-                    <GameDateText>{props.dateGame.toLocaleDateString('pt-BR')} - (R$ {priceReal})</GameDateText>
-                    <TypeGameText>{props.type}</TypeGameText>
-                </DetailsArea>
+                <DetailsContainer>
+                    {filter ? filteredGames : gamesItems}
+                </DetailsContainer>
             </ContainerGamesHistory>
         </>
     )

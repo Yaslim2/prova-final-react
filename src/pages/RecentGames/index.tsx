@@ -10,8 +10,8 @@ const RecentGames: React.FC = () => {
     return (
         <PageWrapper>
             <NavBar />
-            <AreaFilters  />
-            <GamesHistory numbersSelected={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]} dateGame={new Date()} priceGame={2.5} type="Lotofácil" />
+            <AreaFilters />
+            <GamesHistory />
         </PageWrapper>
     )
 }

@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+type AfterImgTrashProps = {
+  bgColor: string;
+};
+
 export const ItemArea = styled.div`
   display: flex;
   align-items: center;
@@ -18,13 +22,13 @@ export const ImgTrash = styled.img`
   align-self: center;
 `;
 
-export const AfterImgTrash = styled.div`
+export const AfterImgTrash = styled.div<AfterImgTrashProps>`
   content: "";
   width: 7px;
   height: 107px;
   display: inline-block;
   border-radius: 6px;
-  background-color: #7f3992;
+  background-color: ${(props) => props.bgColor};
   margin-right: 15px;
 `;
 

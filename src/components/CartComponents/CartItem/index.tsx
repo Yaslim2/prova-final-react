@@ -3,12 +3,12 @@ import { useDispatch } from 'react-redux'
 import { cartActions } from '../../../store/cartSlice'
 import { GameTypeText, GamePriceText, ItemArea, DeleteArea, AfterImgTrash, ImgTrash, NumberGameText, DetailGameArea, DetailGameTextArea } from './styles'
 
-const CartItem: React.FC<{ id: string, balls: number[], gameType: string, gamePrice: string }> = (props) => {
+const CartItem: React.FC<{ id: string, balls: number[], gameType: string, gamePrice: string, mainColor: string }> = (props) => {
     const dispatch = useDispatch();
     const { removeFromCart } = cartActions
     const ordenedBalls = [...props.balls]
     ordenedBalls.sort((a: number, b: number) => a - b);
-    const ballsArrayText = ordenedBalls.map((ball) => ball < 9 ? '0' + ball : ball);
+    const ballsArrayText = ordenedBalls.map((ball) => ball <= 9 ? '0' + ball : ball);
 
     const handleRemoveFromCart = () => {
         dispatch(removeFromCart({ id: props.id }));
@@ -17,7 +17,7 @@ const CartItem: React.FC<{ id: string, balls: number[], gameType: string, gamePr
         <ItemArea>
             <DeleteArea onClick={handleRemoveFromCart}>
                 <ImgTrash src={trashSvg} alt="" />
-                <AfterImgTrash />
+                <AfterImgTrash bgColor={props.mainColor} />
             </DeleteArea>
             <DetailGameArea>
                 <NumberGameText>{ballsArrayText.join(', ')}</NumberGameText>
