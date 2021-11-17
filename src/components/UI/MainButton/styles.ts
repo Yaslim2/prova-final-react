@@ -1,13 +1,14 @@
 import styled from "styled-components";
 type ButtonProps = {
   isForm: boolean | undefined;
+  isCart: boolean | undefined;
 };
 export const MainButtonContainer = styled.button<ButtonProps>`
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #b5c401;
+  color: ${(props) => (props.isForm ? "#b5c401" : "#27C383")};
   border: none;
   background: none;
   font-family: "Poppins", sans-serif;

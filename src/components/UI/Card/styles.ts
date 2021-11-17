@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const CardWrapper = styled.div`
-  width: 352px;
   display: flex;
   justify-content: center;
   align-items: center;

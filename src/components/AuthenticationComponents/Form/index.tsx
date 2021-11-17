@@ -62,13 +62,13 @@ const Form: React.FC<{
     const signUpInputs = <>
         <InputForm ref={nameInputRef} type="text" placeholder='Name' />
         <InputForm ref={emailInputRef} type="text" placeholder='Email' />
-        <InputForm ref={passwordInputRef} type="text" placeholder='Password' />
+        <InputForm ref={passwordInputRef} type="password" placeholder='Password' />
     </>
 
     const loginInputs =
         <>
             <InputForm ref={emailInputRef} type="text" placeholder='Email' />
-            <InputForm ref={passwordInputRef} type="text" placeholder='Password' />
+            <InputForm ref={passwordInputRef} type="password" placeholder='Password' />
             <ButtonResetPassword />
         </>
 
