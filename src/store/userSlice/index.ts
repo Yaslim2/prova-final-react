@@ -1,26 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import IsEmail from "isemail";
-
-interface Game {
-  numbersSelected: number[];
-  date: string;
-  price: number;
-  type: string;
-  color: string;
-}
-
-interface User {
-  id: string;
-  name: string;
-  email: string;
-  password: string;
-  games: Game[];
-}
-
-interface UserSliceState {
-  actualUser: User | null;
-  registeredUsers: User[];
-}
+import {
+  UserSliceState,
+  SignUpProps,
+  LogInProps,
+  SaveGameProps,
+} from "./types";
 
 const initialState: UserSliceState = {
   actualUser: null,
@@ -31,10 +16,7 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    signUp: (
-      state,
-      action: PayloadAction<{ name: string; email: string; password: string }>
-    ) => {
+    signUp: (state, action: PayloadAction<SignUpProps>) => {
       const existingUser = state.registeredUsers.find(
         (user) => user.email === action.payload.email
       );
@@ -57,10 +39,7 @@ const userSlice = createSlice({
         password: action.payload.password,
       });
     },
-    logIn: (
-      state,
-      action: PayloadAction<{ email: string; password: string }>
-    ) => {
+    logIn: (state, action: PayloadAction<LogInProps>) => {
       const existingUser = state.registeredUsers.find(
         (user) =>
           user.email === action.payload.email &&
@@ -83,7 +62,7 @@ const userSlice = createSlice({
       }
       state.actualUser = null;
     },
-    saveGame: (state, action: PayloadAction<{ games: Game[] }>) => {
+    saveGame: (state, action: PayloadAction<SaveGameProps>) => {
       state.actualUser!.games = [
         ...state.actualUser!.games,
         ...action.payload.games,

@@ -1,9 +1,7 @@
 import styled from "styled-components";
-type ButtonProps = {
-  isForm: boolean | undefined;
-  isCart: boolean | undefined;
-};
-export const MainButtonContainer = styled.button<ButtonProps>`
+import { MainButtonContainerProps } from "./types";
+
+export const MainButtonContainer = styled.button<MainButtonContainerProps>`
   cursor: pointer;
   display: flex;
   align-items: center;

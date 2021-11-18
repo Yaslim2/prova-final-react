@@ -1,13 +1,13 @@
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { gameActions } from '../../../store/gameSlice/index'
+import { RootState } from "../../../store";
 import { useHistory } from "react-router";
 import PatternButton from "../../UI/PatternButton";
 import MainButton from "../../UI/MainButton";
-import { useSelector, useDispatch } from "react-redux";
-import { gameActions } from '../../../store/gameSlice/index'
 import { AreaFilterContainer, FilterButtons, RecentGamesText, FilterText } from './styles'
-import { RootState } from "../../../store";
-import React from "react";
 
-const AreaFilters: React.FC<{ userName?: string }> = (props) => {
+const AreaFilters: React.FC = (props) => {
     const dispatch = useDispatch();
     const { filterGame } = gameActions;
     const avaiableGames = useSelector((state: RootState) => state.game.avaiableGames);

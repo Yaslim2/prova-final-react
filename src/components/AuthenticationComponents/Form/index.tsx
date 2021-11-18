@@ -1,18 +1,17 @@
-import { FormEvent, useRef } from 'react'
+import { FormEvent, useRef } from 'react';
+import { toast } from 'react-toastify';
 import { useHistory } from 'react-router'
 import { useDispatch } from 'react-redux'
 import { userActions } from '../../../store/userSlice'
 import MainButton from '../../UI/MainButton'
 import { InputForm, FormItself } from './styles'
 import ButtonResetPassword from '../ButtonResetPassword'
+import { FormProps } from './types'
 
 import Card from '../../UI/Card'
 
 
-const Form: React.FC<{
-    textButton: string, isLogin?: boolean,
-    isResetPassword?: boolean, isSignUp?: boolean
-}> = (props) => {
+const Form: React.FC<FormProps> = (props) => {
     const history = useHistory();
     const dispatch = useDispatch();
     const { logIn, signUp } = userActions;
@@ -23,13 +22,15 @@ const Form: React.FC<{
     const handleLogin = () => {
         const email = emailInputRef.current!.value;
         const password = passwordInputRef.current!.value;
-        if (email.trim() === '') return;
-        if (password.trim() === '') return;
+        if (email.trim() === '' || password.trim() === "") {
+            toast.warn('Preencha os dados do formulário!');
+            return;
+        }
         try {
             dispatch(logIn({ email, password }));
             history.push('/user/recent-games');
         } catch (e: any) {
-            alert(e.message);
+            toast.error(e.message);
         }
     }
 
@@ -37,19 +38,20 @@ const Form: React.FC<{
         const name = nameInputRef.current!.value;
         const email = emailInputRef.current!.value;
         const password = passwordInputRef.current!.value;
-        if (name.trim() === '') return;
-        if (email.trim() === '') return;
-        if (password.trim() === '') return;
+        if (name.trim() === '' || email.trim() === '' || password.trim() === "") {
+            toast.warn('Preencha os dados do formulário!');
+            return;
+        }
         try {
             dispatch(signUp({ name, email, password }))
             history.push('/');
         } catch (e: any) {
-            alert(e.message);
+            toast.error(e.message);
         }
     }
 
     const handleResetPassword = () => {
-        console.log('reset password.')
+
     }
 
     const handleSubmitForm = (e: FormEvent) => {

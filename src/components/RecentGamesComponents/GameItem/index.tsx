@@ -1,6 +1,10 @@
-import { BeforeGamesDetail, DetailGameItemArea, GameItemArea, GameDateText, NumbersSelectedText, TypeGameText } from './styles'
+import {
+    BeforeGamesDetail, DetailGameItemArea, GameItemArea,
+    GameDateText, NumbersSelectedText, TypeGameText
+} from './styles'
 import { convertToReal } from '../../../auxiliarFunctions/index'
-const GameItem: React.FC<{ numbers: number[], date: string, price: number, type: string, mainColor: string }> = (props) => {
+import { GameItemProps } from './types';
+const GameItem: React.FC<GameItemProps> = (props) => {
     const numbersToBeRendered = props.numbers.map((number) => number <= 9 ? '0' + number : number);
     return (
         <GameItemArea>

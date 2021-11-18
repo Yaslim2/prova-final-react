@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
-interface ColorProps {
-  mainColor: string;
-}
+import { ColorProps } from "./types";
 
 export const GameItemArea = styled.div`
   display: flex;

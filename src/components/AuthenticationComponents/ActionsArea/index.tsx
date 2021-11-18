@@ -1,17 +1,19 @@
 import { AuthenticationArea, AuthenticationText } from './styles'
+import { toast } from 'react-toastify';
 import { useHistory } from 'react-router'
 import ButtonSignUp from '../ButtonSignUp'
 import ButtonBack from '../ButtonBack'
 import Form from '../Form'
+import { ActionsAreaProps } from './types'
 
-const ActionsArea: React.FC<{
-    title: string,
-    isLogin?: boolean, buttonText: string, isSignUp?: boolean;
-    isResetPassword?: boolean
-}> = (props) => {
+const ActionsArea: React.FC<ActionsAreaProps> = (props) => {
     const history = useHistory();
     const handleSignUp = () => {
-        history.push('/sign-up')
+        try {
+            history.push('/sign-up')
+        } catch (e: any) {
+            toast.error(e.message);
+        }
     }
 
     const handleBackPage = () => {

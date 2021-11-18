@@ -1,8 +1,5 @@
 import styled from "styled-components";
-
-type MainProps = {
-  isCentered: boolean | undefined;
-};
+import { MainProps } from "./types";
 
 export const Main = styled.main<MainProps>`
   display: ${(props) => (props.isCentered ? "flex" : "block")};

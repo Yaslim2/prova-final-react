@@ -23,19 +23,3 @@ export const DetailsContainer = styled.div`
   padding-left: 20px;
   gap: 12px;
 `;
-
-export const NumbersSelectedText = styled.p`
-  font-size: 17px;
-  font-weight: bold;
-`;
-
-export const GameDateText = styled.p`
-  font-size: 14px;
-  font-style: normal;
-`;
-
-export const TypeGameText = styled.p`
-  font-size: 17px;
-  font-weight: bold;
-  color: #7f3992;
-`;

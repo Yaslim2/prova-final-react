@@ -1,9 +1,13 @@
 import trashSvg from '../../../assets/img/trash.svg'
 import { useDispatch } from 'react-redux'
 import { cartActions } from '../../../store/cartSlice'
-import { GameTypeText, GamePriceText, ItemArea, DeleteArea, AfterImgTrash, ImgTrash, NumberGameText, DetailGameArea, DetailGameTextArea } from './styles'
+import {
+    GameTypeText, GamePriceText, ItemArea, DeleteArea,
+    AfterImgTrash, ImgTrash, NumberGameText, DetailGameArea, DetailGameTextArea
+} from './styles'
+import { CartItemProps } from './types'
 
-const CartItem: React.FC<{ id: string, balls: number[], gameType: string, gamePrice: string, mainColor: string }> = (props) => {
+const CartItem: React.FC<CartItemProps> = (props) => {
     const dispatch = useDispatch();
     const { removeFromCart } = cartActions
     const ordenedBalls = [...props.balls]
@@ -22,7 +26,7 @@ const CartItem: React.FC<{ id: string, balls: number[], gameType: string, gamePr
             <DetailGameArea>
                 <NumberGameText>{ballsArrayText.join(', ')}</NumberGameText>
                 <DetailGameTextArea>
-                    <GameTypeText>{props.gameType}</GameTypeText>
+                    <GameTypeText colorText={props.mainColor}>{props.gameType}</GameTypeText>
                     <GamePriceText>R$ {props.gamePrice}</GamePriceText>
                 </DetailGameTextArea>
             </DetailGameArea>

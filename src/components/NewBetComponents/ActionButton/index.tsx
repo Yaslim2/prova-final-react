@@ -1,6 +1,7 @@
 import { ActionButtonContainer, ShoppingCartImage } from './styles'
 import shoppingCartSvg from '../../../assets/img/shopping-cart.svg'
-const ActionButton: React.FC<{ onClear?: () => void, onAddToCart?: () => void, onComplete?: () => void }> = (props) => {
+import { ActionButtonProps } from './types';
+const ActionButton: React.FC<ActionButtonProps> = (props) => {
     const handleClick = () => {
 
         props.onComplete && props.onComplete();

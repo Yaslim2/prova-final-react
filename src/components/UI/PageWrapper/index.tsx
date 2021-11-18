@@ -1,5 +1,6 @@
 import { Main } from './styles'
-const PageWrapper: React.FC<{ isCentered?: boolean }> = (props) => {
+import { PageWrapperProps } from './types'
+const PageWrapper: React.FC<PageWrapperProps> = (props) => {
     return (
         <Main isCentered={props.isCentered}>{props.children}</Main>
     )

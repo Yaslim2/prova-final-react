@@ -1,32 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import gamesJson from "../../assets/data/games.json";
-interface GameRules {
-  type: string;
-  description: string;
-  range: number;
-  "max-number": number;
-  color: string;
-  price: number;
-}
-
-interface GameSliceState {
-  actualGame: GameRules;
-  avaiableGames: GameRules[];
-  avaiableBalls: number[];
-  selectedBalls: number[];
-  notSelectedBalls: number[];
-  minValue: number;
-  filteredGame: string | null;
-}
-
-const generateArray = (range: number) => {
-  return Array.from({ length: range }, (_, i) => i + 1);
-};
+import { GameSliceState, SelectBallProps, GameTypeProps } from "./types";
+import { generateArray, generateRandomNumber } from "../../auxiliarFunctions";
 
 const initialBalls = generateArray(gamesJson.types[0].range);
-const generateRandomNumber = (min: number, max: number): number => {
-  return Math.round(Math.random() * (max - min) + min);
-};
 
 const initialState: GameSliceState = {
   actualGame: gamesJson.types[0],
@@ -42,7 +19,7 @@ const gameSlice = createSlice({
   name: "game",
   initialState,
   reducers: {
-    selectGame: (state, action: PayloadAction<{ gameType: string | null }>) => {
+    selectGame: (state, action: PayloadAction<GameTypeProps>) => {
       const gameSelected = state.avaiableGames.find(
         (game) => game.type === action.payload.gameType
       );
@@ -53,7 +30,7 @@ const gameSlice = createSlice({
         state.notSelectedBalls = generateArray(gameSelected.range);
       }
     },
-    selectBall: (state, action: PayloadAction<{ ball: number | null }>) => {
+    selectBall: (state, action: PayloadAction<SelectBallProps>) => {
       const ballExists = state.selectedBalls.find(
         (ball) => ball === action.payload.ball
       );
@@ -65,8 +42,9 @@ const gameSlice = createSlice({
         action.payload.ball && state.notSelectedBalls.push(action.payload.ball);
       } else {
         if (state.selectedBalls.length === state.actualGame["max-number"]) {
-          alert(`Máximo de ${state.actualGame["max-number"]} atingido!`);
-          return;
+          throw new Error(
+            `Máximo de ${state.actualGame["max-number"]} números atingido!`
+          );
         }
         action.payload.ball && state.selectedBalls.push(action.payload.ball);
         state.notSelectedBalls = state.notSelectedBalls.filter(
@@ -79,8 +57,7 @@ const gameSlice = createSlice({
       const numberBallsToBeSelected =
         state.actualGame["max-number"] - numberBallsSelected;
       if (numberBallsToBeSelected === 0) {
-        alert("Falha ao completar o jogo pois ele já está completo!");
-        return;
+        throw new Error("Falha ao completar o jogo pois ele já está completo!");
       }
       for (let i = 0; i < numberBallsToBeSelected; i++) {
         const randomBall = generateRandomNumber(
@@ -98,7 +75,7 @@ const gameSlice = createSlice({
       state.selectedBalls = [];
       state.notSelectedBalls = generateArray(state.actualGame.range);
     },
-    filterGame: (state, action: PayloadAction<{ gameType: string | null }>) => {
+    filterGame: (state, action: PayloadAction<GameTypeProps>) => {
       const gameToBeFiltered = state.avaiableGames.find(
         (game) => game.type === action.payload.gameType
       );
@@ -112,6 +89,7 @@ const gameSlice = createSlice({
     resetGame: (state) => {
       state.actualGame = initialState.actualGame;
       state.filteredGame = null;
+      state.avaiableBalls = generateArray(state.actualGame.range);
     },
   },
 });

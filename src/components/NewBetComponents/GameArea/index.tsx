@@ -1,4 +1,5 @@
 import React from 'react'
+import { toast } from 'react-toastify'
 import { LeftActionsButtons, ActionsButtonsArea, GameContainer, BallsArea, BetText, SpanBetText, ChooseAGameText, AreaGameButtons, FillYourBetText, DescriptionGameText } from './styles'
 import { useDispatch, useSelector } from 'react-redux'
 import { gameActions } from '../../../store/gameSlice'
@@ -28,7 +29,7 @@ const GameArea: React.FC = (props) => {
 
     const handleAddToCart = () => {
         if (selectedBalls.length < actualGame['max-number']) {
-            alert('Complete seu jogo!')
+            toast.warn(`Complete seu jogo antes de adicionar ele ao carrinho.`);
             return;
         }
         const item = {
@@ -43,7 +44,11 @@ const GameArea: React.FC = (props) => {
     }
 
     const handleCompleteGame = () => {
-        dispatch(completeGame());
+        try {
+            dispatch(completeGame());
+        } catch (e: any) {
+            toast.warn(e.message);
+        }
     }
 
 

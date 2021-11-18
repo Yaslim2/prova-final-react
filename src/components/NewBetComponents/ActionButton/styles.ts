@@ -1,10 +1,7 @@
 import styled from "styled-components";
+import { ActionButtonContainerProps } from "./types";
 
-type ActionButtonProps = {
-  isAddToCart: boolean | undefined;
-};
-
-export const ActionButtonContainer = styled.button<ActionButtonProps>`
+export const ActionButtonContainer = styled.button<ActionButtonContainerProps>`
   display: flex;
   cursor: pointer;
   justify-content: ${(props) =>

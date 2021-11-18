@@ -1,17 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-interface ItemCart {
-  numbers: number[];
-  gameType: string;
-  gamePrice: number;
-  id: string;
-  mainColor: string;
-}
-
-interface CartSliceState {
-  items: ItemCart[];
-  totalPrice: number;
-}
+import { CartSliceState, ItemCart, RemoveFromCartProps } from "./types";
 
 const initialState: CartSliceState = {
   items: [],
@@ -33,7 +21,7 @@ const cartSlice = createSlice({
       state.items.push(item);
       state.totalPrice += action.payload.gamePrice;
     },
-    removeFromCart: (state, action: PayloadAction<{ id: string }>) => {
+    removeFromCart: (state, action: PayloadAction<RemoveFromCartProps>) => {
       state.items = state.items.filter((item) => {
         if (item.id === action.payload.id) {
           state.totalPrice -= item.gamePrice;

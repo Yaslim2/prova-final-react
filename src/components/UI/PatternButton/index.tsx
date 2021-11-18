@@ -1,6 +1,7 @@
-import React, { MouseEvent } from 'react'
+import React from 'react'
 import { Button } from './styles'
-const PatternButton: React.FC<{ isActive?: boolean, color?: string, gameButton?: boolean, onFilter?: (event: MouseEvent) => void, onSelect?: (event: MouseEvent) => void }> = (props) => {
+import { PatternButtonProps } from './types';
+const PatternButton: React.FC<PatternButtonProps> = (props) => {
     const handleClick = (event: React.MouseEvent) => {
         props.onFilter && props.onFilter(event);
         props.onSelect && props.onSelect(event);

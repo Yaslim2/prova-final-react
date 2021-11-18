@@ -1,12 +1,7 @@
 import styled from "styled-components";
+import { PatternButtonStyleProps } from "./types";
 
-type PatternButtonProps = {
-  activeColor: string | undefined;
-  gameButton: boolean | undefined;
-  isActive: boolean | undefined;
-};
-
-export const Button = styled.button<PatternButtonProps>`
+export const Button = styled.button<PatternButtonStyleProps>`
   cursor: ${(props) => (props.gameButton ? "pointer" : "")};
   background-color: ${(props) => (props.isActive ? props.activeColor : "#fff")};
   border: ${(props) =>

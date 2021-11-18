@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
-type AfterImgTrashProps = {
-  bgColor: string;
-};
+import { AfterImgTrashProps, GameTypeTextProps } from "./types";
 
 export const ItemArea = styled.div`
   display: flex;
@@ -51,8 +49,8 @@ export const DetailGameTextArea = styled.div`
   gap: 10px;
 `;
 
-export const GameTypeText = styled.p`
-  color: #7f3992;
+export const GameTypeText = styled.p<GameTypeTextProps>`
+  color: ${(props) => props.colorText};
   font-weight: bold;
   font-size: 16px;
 `;
