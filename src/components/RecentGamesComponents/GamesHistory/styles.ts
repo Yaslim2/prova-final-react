@@ -23,3 +23,23 @@ export const DetailsContainer = styled.div`
   padding-left: 20px;
   gap: 12px;
 `;
+
+export const EmptyGameArea = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const EmptyGameImg = styled.img`
+  height: 150px;
+  width: 150px;
+`;
+
+export const EmptyGameText = styled.p`
+  font-size: 17px;
+  font-weight: bold;
+  color: #808080;
+  margin-top: 20px;
+`;
