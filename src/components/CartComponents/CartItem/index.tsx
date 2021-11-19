@@ -1,6 +1,6 @@
-import trashSvg from '../../../assets/img/trash.svg'
+import trashSvg from '@assets/img/trash.svg'
 import { useDispatch } from 'react-redux'
-import { cartActions } from '../../../store/cartSlice'
+import { cartActions } from '@store/cartSlice'
 import {
     GameTypeText, GamePriceText, ItemArea, DeleteArea,
     AfterImgTrash, ImgTrash, NumberGameText, DetailGameArea, DetailGameTextArea

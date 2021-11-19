@@ -1,13 +1,17 @@
 import React from 'react'
 import { toast } from 'react-toastify'
-import { LeftActionsButtons, ActionsButtonsArea, GameContainer, BallsArea, BetText, SpanBetText, ChooseAGameText, AreaGameButtons, FillYourBetText, DescriptionGameText } from './styles'
 import { useDispatch, useSelector } from 'react-redux'
-import { gameActions } from '../../../store/gameSlice'
-import { cartActions } from '../../../store/cartSlice'
-import { RootState } from '../../../store'
-import PatternButton from '../../UI/PatternButton'
+import { gameActions } from '@store/gameSlice'
+import { cartActions } from '@store/cartSlice'
+import { RootState } from '@store/index'
+import PatternButton from '@UI/PatternButton'
 import Balls from '../Balls'
 import ActionButton from '../ActionButton'
+import {
+    LeftActionsButtons, ActionsButtonsArea, GameContainer,
+    BallsArea, BetText, SpanBetText, ChooseAGameText, AreaGameButtons,
+    FillYourBetText, DescriptionGameText
+} from './styles'
 
 const GameArea: React.FC = (props) => {
     const { selectGame, completeGame, clearGame } = gameActions;

@@ -16,8 +16,16 @@ export const ActionButtonContainer = styled.button<ActionButtonContainerProps>`
   border: 1px solid #27c383;
   background-color: ${(props) => (props.isAddToCart ? "#27c383" : "#fff")};
   color: ${(props) => (props.isAddToCart ? "#fff" : "#27c383")};
+  @media (max-width: 768px) {
+    height: 52px;
+    width: ${(props) => (props.isAddToCart ? "180px" : "140px")};
+    font-size: 15px;
+  }
 `;
 
 export const ShoppingCartImage = styled.img`
   height: 25px;
+  @media (max-width: 768px) {
+    height: 20px;
+  }
 `;

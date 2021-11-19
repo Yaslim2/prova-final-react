@@ -1,8 +1,8 @@
 import { BallStyle } from './styles';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
-import { gameActions } from '../../../store/gameSlice';
-import { RootState } from '../../../store';
+import { gameActions } from '@store/gameSlice';
+import { RootState } from '@store/index';
 
 const Balls: React.FC = (props) => {
     const ballNumber = Number(props.children);

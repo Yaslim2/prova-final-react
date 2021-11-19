@@ -1,6 +1,6 @@
-import NavBar from "../../components/UI/NavBar";
-import PageWrapper from "../../components/UI/PageWrapper";
-import BetArea from "../../components/NewBetComponents/BetArea";
+import NavBar from "@UI/NavBar";
+import PageWrapper from "@UI/PageWrapper";
+import BetArea from "@NewBetComponents/BetArea";
 const NewBet: React.FC = () => {
     return (
         <PageWrapper>

@@ -8,4 +8,10 @@ export const Main = styled.main<MainProps>`
   height: ${(props) => (props.isCentered ? "100vh" : "100%")};
   color: #707070;
   letter-spacing: 0;
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100vw;
+  }
 `;

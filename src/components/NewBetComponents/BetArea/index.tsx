@@ -1,9 +1,12 @@
-import Cart from '../../CartComponents/Cart'
+import Cart from '@CartComponents/Cart'
 import GameArea from '../GameArea'
+import { useSelector } from 'react-redux'
 import { BetContainer, AreaGames } from './styles'
+import { RootState } from '@store/index'
 const BetArea: React.FC = () => {
+    const isToggle = useSelector((state: RootState) => state.toggle.isToggle);
     return (
-        <AreaGames>
+        <AreaGames isToggle={isToggle}>
             <BetContainer>
                 <GameArea />
             </BetContainer>

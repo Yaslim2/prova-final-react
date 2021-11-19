@@ -1,6 +1,6 @@
-import PageWrapper from '../../components/UI/PageWrapper';
-import DescriptionArea from '../../components/AuthenticationComponents/DescriptionArea'
-import ActionsArea from "../../components/AuthenticationComponents/ActionsArea";
+import PageWrapper from '@UI/PageWrapper';
+import DescriptionArea from '@AuthenticationComponents/DescriptionArea'
+import ActionsArea from "@AuthenticationComponents/ActionsArea";
 
 const LoginPage: React.FC = () => {
     return (

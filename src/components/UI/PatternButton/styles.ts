@@ -19,4 +19,10 @@ export const Button = styled.button<PatternButtonStyleProps>`
   border-radius: 100px;
   color: ${(props) => (props.isActive ? "#Fff" : props.activeColor)};
   margin: 15px 0px;
+  @media (max-width: 768px) {
+    width: ${(props) => (props.gameButton ? "90px" : "90px")};
+    height: ${(props) => (props.gameButton ? "30px" : "20px")};
+    font-size: ${(props) => (props.gameButton ? "13px" : "16px")};
+    margin: 0;
+  }
 `;

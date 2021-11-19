@@ -16,9 +16,15 @@ export const BackButton = styled.button`
 
 export const BackButtonArrow = styled.img`
   height: 30px;
+  @media (max-width: 768px) {
+    heigh: 24px;
+  }
 `;
 
 export const BackButtonText = styled.h1`
   font-size: 35px;
   margin-left: 10px;
+  @media (max-width: 768px) {
+    font-size: 25px;
+  }
 `;

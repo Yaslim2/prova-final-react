@@ -18,4 +18,7 @@ export const InputForm = styled.input`
   &::placeholder {
     color: #9d9d9d;
   }
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;

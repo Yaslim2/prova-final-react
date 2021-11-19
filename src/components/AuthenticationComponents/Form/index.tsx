@@ -2,13 +2,13 @@ import { FormEvent, useRef } from 'react';
 import { toast } from 'react-toastify';
 import { useHistory } from 'react-router'
 import { useDispatch } from 'react-redux'
-import { userActions } from '../../../store/userSlice'
-import MainButton from '../../UI/MainButton'
-import { InputForm, FormItself } from './styles'
+import { userActions } from '@store/userSlice'
+import Card from '@UI/Card'
+import MainButton from '@UI/MainButton'
 import ButtonResetPassword from '../ButtonResetPassword'
 import { FormProps } from './types'
+import { InputForm, FormItself } from './styles'
 
-import Card from '../../UI/Card'
 
 
 const Form: React.FC<FormProps> = (props) => {

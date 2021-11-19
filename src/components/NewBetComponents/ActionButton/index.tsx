@@ -1,5 +1,5 @@
 import { ActionButtonContainer, ShoppingCartImage } from './styles'
-import shoppingCartSvg from '../../../assets/img/shopping-cart.svg'
+import shoppingCartSvg from '@assets/img/shopping-cart.svg'
 import { ActionButtonProps } from './types';
 const ActionButton: React.FC<ActionButtonProps> = (props) => {
     const handleClick = () => {

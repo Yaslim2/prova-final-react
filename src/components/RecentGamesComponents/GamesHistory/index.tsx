@@ -1,11 +1,16 @@
-import { ContainerGamesHistory, DetailsContainer, EmptyGameArea, EmptyGameImg, EmptyGameText } from './styles'
+import {
+    ContainerGamesHistory, DetailsContainer, EmptyGameArea,
+    EmptyGameImg, EmptyGameText
+} from './styles'
 import { useSelector } from 'react-redux';
-import boxImg from '../../../assets/img/box.png'
-import { RootState } from '../../../store';
+import boxImg from '@assets/img/box.png'
+import { RootState } from '@store/index';
 import GameItem from '../GameItem';
+
 const GamesHistory: React.FC = (props) => {
     const userGames = useSelector((state: RootState) => state.user.actualUser?.games);
     const filter = useSelector((state: RootState) => state.game.filteredGame);
+    const isToggle = useSelector((state: RootState) => state.toggle.isToggle);
     const gamesItems = userGames?.filter((game) => {
         return filter ? filter === game.type : true;
     });
@@ -21,10 +26,10 @@ const GamesHistory: React.FC = (props) => {
         )
 
     const renderEmptyGame = !gamesItems || gamesItems.length === 0 || !filteredGames
-    console.log(filteredGames)
+
     return (
         <>
-            <ContainerGamesHistory>
+            <ContainerGamesHistory isToggle={isToggle}>
                 <DetailsContainer>
                     {filteredGames}
                 </DetailsContainer>

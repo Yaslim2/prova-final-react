@@ -12,16 +12,24 @@ export const CartItemsArea = styled.div`
 `;
 
 export const ContainerCart = styled.div`
-  max-width: 317px;
+  width: 100%;
 `;
 
 export const CartTitleText = styled.h2`
   font-size: 24px;
+  @media (max-width: 768px) {
+    font-size: 22px;
+  }
 `;
 
 export const TotalCartText = styled.h2`
   margin: 25px 0;
   font-size: 24px;
+  @media (max-width: 768px) {
+    font-size: 22px;
+    margin-top: 30px;
+    margin-bottom: 0;
+  }
 `;
 
 export const TotalCartPrice = styled.span`
@@ -38,6 +46,9 @@ export const AreaButtonSave = styled.div`
   background-color: #f4f4f4;
   border-top: 2px solid #e2e2e2;
   text-align: center;
+  @media (max-width: 768px) {
+    padding: 0;
+  }
 `;
 
 export const EmptyCartArea = styled.div`

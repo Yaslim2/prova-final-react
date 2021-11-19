@@ -5,6 +5,10 @@ export const DescriptionContainerArea = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media (max-width: 768px) {
+    margin-bottom: 25px;
+    margin-top: 25px;
+  }
 `;
 
 export const DescriptionTextArea = styled.div`
@@ -16,8 +20,14 @@ export const DescriptionTextArea = styled.div`
 
 export const TextDescription = styled.h1`
   font-size: 65px;
+  @media (max-width: 768px) {
+    font-size: 42px;
+  }
 `;
 
 export const TextDescriptionHigher = styled.h1`
   font-size: 83px;
+  @media (max-width: 768px) {
+    font-size: 65px;
+  }
 `;

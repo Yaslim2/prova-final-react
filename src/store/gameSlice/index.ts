@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import gamesJson from "../../assets/data/games.json";
+import gamesJson from "@assets/data/games.json";
 import { GameSliceState, SelectBallProps, GameTypeProps } from "./types";
-import { generateArray, generateRandomNumber } from "../../auxiliarFunctions";
+import { generateArray, generateRandomNumber } from "@auxiliarFunctions/index";
 
 const initialBalls = generateArray(gamesJson.types[0].range);
 

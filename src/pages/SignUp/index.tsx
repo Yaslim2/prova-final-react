@@ -1,6 +1,6 @@
-import DescriptionArea from '../../components/AuthenticationComponents/DescriptionArea'
-import ActionsArea from "../../components/AuthenticationComponents/ActionsArea";
-import PageWrapper from '../../components/UI/PageWrapper';
+import DescriptionArea from '@AuthenticationComponents/DescriptionArea'
+import ActionsArea from "@AuthenticationComponents/ActionsArea";
+import PageWrapper from '@UI/PageWrapper';
 
 const SignUpPage: React.FC = () => {
     return (

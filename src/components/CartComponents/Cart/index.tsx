@@ -1,20 +1,22 @@
 import { useHistory } from "react-router";
 import { toast } from 'react-toastify'
 import { useSelector, useDispatch } from "react-redux";
-import MainButton from "../../UI/MainButton";
-import { userActions } from "../../../store/userSlice";
-import { cartActions } from "../../../store/cartSlice";
-import { RootState } from "../../../store";
-import { convertToReal } from '../../../auxiliarFunctions/index'
-import { gameActions } from "../../../store/gameSlice";
-import Card from "../../UI/Card";
+import MainButton from "@UI/MainButton";
+import { userActions } from "@store/userSlice";
+import { cartActions } from "@store/cartSlice";
+import { Game } from "@store/userSlice/types";
+import { RootState } from "@store/index";
+import { convertToReal } from '@auxiliarFunctions/index'
+import { gameActions } from "@store/gameSlice";
+import Card from "@UI/Card";
 import CartItem from "../CartItem";
-import emptyCartSvg from '../../../assets/img/empty-cart.png';
+import emptyCartSvg from '@assets/img/empty-cart.png';
 import {
     CartItemsArea, EmptyCartText, EmptyCartArea,
-    EmptyCartImg, CartArea, ContainerCart, CartTitleText, TotalCartPrice, TotalCartText, AreaButtonSave
+    EmptyCartImg, CartArea, ContainerCart,
+    CartTitleText, TotalCartPrice,
+    TotalCartText, AreaButtonSave
 } from './styles'
-import { Game } from "../../../store/userSlice/types";
 
 const Cart: React.FC = (props) => {
     const history = useHistory();

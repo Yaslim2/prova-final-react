@@ -1,5 +1,5 @@
 import { SignUpButton, SignUpButtonArrow, SignUpButtonText } from './styles'
-import rightArrowGraySvg from '../../../assets/img/arrow-right-gray.svg'
+import rightArrowGraySvg from '@assets/img/arrow-right-gray.svg'
 import { ButtonSignUpProps } from './types'
 
 const ButtonSignUp: React.FC<ButtonSignUpProps> = (props) => {

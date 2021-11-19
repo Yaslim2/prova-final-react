@@ -20,4 +20,7 @@ export const ResetPasswordButton = styled(Link)`
 export const ResetPasswordText = styled.p`
   font-size: 17px;
   font-style: italic;
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
