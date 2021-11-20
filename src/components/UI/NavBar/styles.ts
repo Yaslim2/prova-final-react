@@ -19,11 +19,11 @@ export const NavBarContainer = styled.nav<NavBarContainerProps>`
   justify-content: space-between;
   align-items: center;
   padding: 10px 50px 0 50px;
-  width: 100vw;
+  width: 100%;
   @media (max-width: 768px) {
     display: ${(props) => (props.isToggle ? "flex" : "none")};
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -60,7 +60,7 @@ export const LogoText = styled.h1`
   cursor: pointer;
   &::after {
     content: "";
-    width: 130px;
+    width: 107px;
     height: 7px;
     background-color: #b5c401;
     display: block;
@@ -68,6 +68,14 @@ export const LogoText = styled.h1`
   }
   @media (max-width: 768px) {
     font-size: 60px;
+    &::after {
+      content: "";
+      width: 130px;
+      height: 7px;
+      background-color: #b5c401;
+      display: block;
+      border-radius: 6px;
+    }
   }
 `;
 

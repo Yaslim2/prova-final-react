@@ -41,24 +41,26 @@ const NavBar: React.FC = () => {
     }
 
     return (
-        <Header>
-            <NavBarContainer isToggle={isToggle}>
-                <LeftSideNavBar>
-                    <LogoText>TGL</LogoText>
-                    <CustomizedLink onClick={handleBackToHome} to="/user/recent-games">Home</CustomizedLink>
-                </LeftSideNavBar>
-                <RightSideNavBar>
-                    <CustomizedLink to="#">Account</CustomizedLink>
-                    <CustomizedLink to="#">
-                        <LogoutArea onClick={handleLogOut}>
-                            Logout
-                            <ArrowRightImg src={arrowRightGray} alt="arrow to right" />
-                        </LogoutArea>
-                    </CustomizedLink>
-                </RightSideNavBar>
-            </NavBarContainer>
-            <ToggleButton onToggle={handleToggle} />
-        </Header>
+        <>
+            <Header>
+                <NavBarContainer isToggle={isToggle}>
+                    <LeftSideNavBar>
+                        <LogoText>TGL</LogoText>
+                        <CustomizedLink onClick={handleBackToHome} to="/user/recent-games">Home</CustomizedLink>
+                    </LeftSideNavBar>
+                    <RightSideNavBar>
+                        <CustomizedLink to="#">Account</CustomizedLink>
+                        <CustomizedLink to="#">
+                            <LogoutArea onClick={handleLogOut}>
+                                Logout
+                                <ArrowRightImg src={arrowRightGray} alt="arrow to right" />
+                            </LogoutArea>
+                        </CustomizedLink>
+                    </RightSideNavBar>
+                </NavBarContainer>
+                <ToggleButton onToggle={handleToggle} />
+            </Header>
+        </>
     )
 }
 

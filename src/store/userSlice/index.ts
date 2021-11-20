@@ -22,14 +22,16 @@ const userSlice = createSlice({
       );
       if (existingUser) {
         throw new Error(
-          "E-mail já cadastrado, tente se registrar com outro e-mail."
+          "Email already registered, try to register with another email."
         );
       }
       if (!IsEmail.validate(action.payload.email)) {
-        throw new Error("Email inválido, por favor entre com um email válido.");
+        throw new Error("Invalid email, please enter a valid email.");
       }
       if (action.payload.password.length < 5) {
-        throw new Error("Senha inválida, por favor entre com uma senha.");
+        throw new Error(
+          "Invalid password, please enter a password of at least 5 digits."
+        );
       }
       state.registeredUsers.push({
         id: Math.random().toString(),
@@ -49,7 +51,7 @@ const userSlice = createSlice({
         state.actualUser = existingUser;
       } else {
         throw new Error(
-          "Usuário não encontrado, verifique suas credenciais e tente novamente."
+          "User not found, check your credentials and try again."
         );
       }
     },

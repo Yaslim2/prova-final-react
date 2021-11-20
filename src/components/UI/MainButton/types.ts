@@ -5,6 +5,7 @@ export type MainButtonProps = {
 };
 
 export type MainButtonContainerProps = {
-  isForm: boolean | undefined;
-  isCart: boolean | undefined;
+  isForm?: boolean;
+  isCart?: boolean;
+  isNewBet?: boolean;
 };

@@ -29,6 +29,7 @@ export const GameButtonsArea = styled.div`
   justify-content: space-around;
   align-items: center;
   gap: 10px;
+  flex-wrap: wrap;
 `;
 
 export const RecentGamesText = styled.h1`

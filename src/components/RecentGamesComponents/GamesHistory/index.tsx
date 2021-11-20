@@ -1,6 +1,6 @@
 import {
     ContainerGamesHistory, DetailsContainer, EmptyGameArea,
-    EmptyGameImg, EmptyGameText
+    EmptyGameImg, EmptyGameText, EmptyGameTextSpan
 } from './styles'
 import { useSelector } from 'react-redux';
 import boxImg from '@assets/img/box.png'
@@ -12,16 +12,29 @@ const GamesHistory: React.FC = (props) => {
     const filter = useSelector((state: RootState) => state.game.filteredGame);
     const isToggle = useSelector((state: RootState) => state.toggle.isToggle);
     const gamesItems = userGames?.filter((game) => {
-        return filter ? filter === game.type : true;
+        const filtered = filter?.find((filteredGame) => {
+            return filteredGame === game.type;
+        })
+        if (filter?.length === 0) {
+            return true;
+        }
+        return filtered;
     });
+    console.log(gamesItems)
     const filteredGames = gamesItems?.map((game, index) => {
         return <GameItem key={index} mainColor={game.color} numbers={game.numbersSelected} date={game.date} price={game.price} type={game.type} />;
     })
+
     const emptyGame =
         (
             <EmptyGameArea>
                 <EmptyGameImg src={boxImg} alt="" />
-                <EmptyGameText>Nenhum jogo por aqui...</EmptyGameText>
+                <EmptyGameText>
+                    No games around here...
+                </EmptyGameText>
+                <EmptyGameText>
+                    Click on the <EmptyGameTextSpan>New Bet</EmptyGameTextSpan> button to add a game!
+                </EmptyGameText>
             </EmptyGameArea>
         )
 

@@ -24,11 +24,12 @@ const AreaFilters: React.FC = (props) => {
     }
 
     const gameButtons = avaiableGames.map((game, index) => {
+        const isFiltered = filter?.find((filteredGame) => game.type === filteredGame)
         return (
             <PatternButton
                 onFilter={handleFilterGame}
                 key={index}
-                isActive={game.type === filter}
+                isActive={isFiltered ? true : false}
                 color={game.color}
                 gameButton
             >

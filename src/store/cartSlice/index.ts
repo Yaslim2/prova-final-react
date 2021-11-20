@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { CartSliceState, ItemCart, RemoveFromCartProps } from "./types";
+import { sameValues } from "@auxiliarFunctions/index";
 
 const initialState: CartSliceState = {
   items: [],
@@ -12,12 +13,20 @@ const cartSlice = createSlice({
   reducers: {
     addToCart: (state, action: PayloadAction<ItemCart>) => {
       const item = {
-        numbers: action.payload.numbers,
+        numbers: action.payload.numbers.sort((a: number, b: number) => a - b),
         gameType: action.payload.gameType,
         gamePrice: action.payload.gamePrice,
         id: action.payload.id,
         mainColor: action.payload.mainColor,
       };
+      const sameTypeGameExisting = state.items.filter(
+        (game) => game.gameType === item.gameType
+      );
+      sameTypeGameExisting.forEach((game) => {
+        if (sameValues(game.numbers, item.numbers)) {
+          throw new Error("The game you tried to add already exists.");
+        }
+      });
       state.items.push(item);
       state.totalPrice += action.payload.gamePrice;
     },

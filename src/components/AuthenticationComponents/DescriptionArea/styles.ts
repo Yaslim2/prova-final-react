@@ -16,6 +16,9 @@ export const DescriptionTextArea = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  @media (max-width: 768px) {
+    margin-bottom: 25px;
+  }
 `;
 
 export const TextDescription = styled.h1`

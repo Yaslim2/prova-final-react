@@ -10,9 +10,7 @@ import { CartItemProps } from './types'
 const CartItem: React.FC<CartItemProps> = (props) => {
     const dispatch = useDispatch();
     const { removeFromCart } = cartActions
-    const ordenedBalls = [...props.balls]
-    ordenedBalls.sort((a: number, b: number) => a - b);
-    const ballsArrayText = ordenedBalls.map((ball) => ball <= 9 ? '0' + ball : ball);
+    const ballsArrayText = props.balls.map((ball) => ball <= 9 ? '0' + ball : ball);
 
     const handleRemoveFromCart = () => {
         dispatch(removeFromCart({ id: props.id }));

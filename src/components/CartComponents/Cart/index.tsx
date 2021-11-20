@@ -30,7 +30,7 @@ const Cart: React.FC = (props) => {
     const cartItems = items.map((item) => <CartItem mainColor={item.mainColor} id={item.id} key={item.id} balls={item.numbers} gamePrice={convertToReal(item.gamePrice)} gameType={item.gameType} />)
     const handleSaveGame = () => {
         if (totalPrice < minValue) {
-            toast.warn(`O valor mínimo para apostas é de R$ ${minValue}.`);
+            toast.warn(`The minimum stake is R$ ${convertToReal(minValue)}.`);
             return;
         }
         const gameItems: Game[] = items.map((item) => {
@@ -51,17 +51,17 @@ const Cart: React.FC = (props) => {
     const emptyCart =
         <EmptyCartArea>
             <EmptyCartImg src={emptyCartSvg} alt="" />
-            <EmptyCartText>Sem itens no seu carrinho...</EmptyCartText>
+            <EmptyCartText>No items in your cart...</EmptyCartText>
+            <EmptyCartText>Add an item!</EmptyCartText>
         </EmptyCartArea>
     return (
         <CartArea>
             <Card>
                 <ContainerCart>
-                    <CartItemsArea>
-                        <CartTitleText>CART</CartTitleText>
-                        {cartItems.length === 0 ? emptyCart : cartItems}
-                        {cartItems.length !== 0 ? <TotalCartText>CART <TotalCartPrice>TOTAL: R$: {convertToReal(totalPrice)}</TotalCartPrice></TotalCartText> : null}
-                    </CartItemsArea>
+                    <CartTitleText>CART</CartTitleText>
+
+                    {cartItems.length === 0 ? emptyCart : <CartItemsArea>{cartItems}</CartItemsArea>}
+                    <TotalCartText>CART <TotalCartPrice>TOTAL: R$: {convertToReal(totalPrice)}</TotalCartPrice></TotalCartText>
                     {cartItems.length !== 0 ? (
                         <AreaButtonSave>
                             <MainButton onSave={handleSaveGame}>Save</MainButton>

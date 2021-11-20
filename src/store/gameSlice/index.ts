@@ -12,7 +12,7 @@ const initialState: GameSliceState = {
   selectedBalls: [],
   notSelectedBalls: [...initialBalls],
   minValue: gamesJson["min-cart-value"],
-  filteredGame: null,
+  filteredGame: [],
 };
 
 const gameSlice = createSlice({
@@ -43,7 +43,7 @@ const gameSlice = createSlice({
       } else {
         if (state.selectedBalls.length === state.actualGame["max-number"]) {
           throw new Error(
-            `Máximo de ${state.actualGame["max-number"]} números atingido!`
+            `Max of ${state.actualGame["max-number"]} numbers hit!`
           );
         }
         action.payload.ball && state.selectedBalls.push(action.payload.ball);
@@ -57,7 +57,9 @@ const gameSlice = createSlice({
       const numberBallsToBeSelected =
         state.actualGame["max-number"] - numberBallsSelected;
       if (numberBallsToBeSelected === 0) {
-        throw new Error("Falha ao completar o jogo pois ele já está completo!");
+        throw new Error(
+          "Your game could not be completed as it is already complete!"
+        );
       }
       for (let i = 0; i < numberBallsToBeSelected; i++) {
         const randomBall = generateRandomNumber(
@@ -79,16 +81,20 @@ const gameSlice = createSlice({
       const gameToBeFiltered = state.avaiableGames.find(
         (game) => game.type === action.payload.gameType
       );
-      const isAlreadyFiltered = gameToBeFiltered?.type === state.filteredGame;
+      const isAlreadyFiltered = state.filteredGame?.find(
+        (filteredGame) => filteredGame === action.payload.gameType
+      );
       if (isAlreadyFiltered) {
-        state.filteredGame = null;
+        state.filteredGame = state.filteredGame!.filter(
+          (filteredGame) => filteredGame !== isAlreadyFiltered
+        );
         return;
       }
-      state.filteredGame = gameToBeFiltered!.type;
+      state.filteredGame?.push(gameToBeFiltered!.type);
     },
     resetGame: (state) => {
       state.actualGame = initialState.actualGame;
-      state.filteredGame = null;
+      state.filteredGame = [];
       state.avaiableBalls = generateArray(state.actualGame.range);
     },
   },

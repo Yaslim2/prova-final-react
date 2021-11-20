@@ -42,8 +42,13 @@ export const EmptyGameText = styled.p`
   font-weight: bold;
   color: #808080;
   margin-top: 20px;
+  text-align: center;
 
   @media (max-width: 768px) {
     font-size: 14px;
   }
+`;
+
+export const EmptyGameTextSpan = styled.span`
+  color: #b5c401;
 `;

@@ -5,7 +5,6 @@ import { AfterImgTrashProps, GameTypeTextProps } from "./types";
 export const ItemArea = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 24px;
 `;
 
 export const DeleteArea = styled.div`

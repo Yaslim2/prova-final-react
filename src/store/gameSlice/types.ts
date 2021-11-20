@@ -14,7 +14,7 @@ export type GameSliceState = {
   selectedBalls: number[];
   notSelectedBalls: number[];
   minValue: number;
-  filteredGame: string | null;
+  filteredGame: string[] | null;
 };
 
 export type GameTypeProps = {

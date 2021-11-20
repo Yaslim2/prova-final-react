@@ -32,8 +32,12 @@ const GameArea: React.FC = (props) => {
     }
 
     const handleAddToCart = () => {
-        if (selectedBalls.length < actualGame['max-number']) {
-            toast.warn(`Complete seu jogo antes de adicionar ele ao carrinho.`);
+        const numbersToBeComplete = actualGame['max-number'] - selectedBalls.length;
+        if (numbersToBeComplete !== 0) {
+            toast.warn(
+                `There is ${numbersToBeComplete} number${numbersToBeComplete !== 1 ? 's' : ''} 
+                left to complete the game.`
+            );
             return;
         }
         const item = {
@@ -43,8 +47,12 @@ const GameArea: React.FC = (props) => {
             gamePrice: actualGame.price,
             mainColor: actualGame.color
         }
-        dispatch(addToCart(item))
-        dispatch(clearGame());
+        try {
+            dispatch(addToCart(item))
+            dispatch(clearGame());
+        } catch (e: any) {
+            toast.warn(e.message);
+        }
     }
 
     const handleCompleteGame = () => {

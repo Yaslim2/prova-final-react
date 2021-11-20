@@ -6,7 +6,7 @@ export const MainButtonContainer = styled.button<MainButtonContainerProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${(props) => (props.isForm ? "#b5c401" : "#27C383")};
+  color: ${(props) => (props.isForm || props.isNewBet ? "#b5c401" : "#27C383")};
   border: none;
   background: none;
   font-family: "Poppins", sans-serif;

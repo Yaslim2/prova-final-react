@@ -1,6 +1,5 @@
 import { MainButtonArrow, MainButtonText, MainButtonContainer } from './styles'
-import rightArrowSvg from '@assets/img/arrow-right.svg'
-import rightArrowSaveSvg from '@assets/img/arrow-right-save.svg'
+import { rightArrow, rightArrowSave } from '@assets/img'
 import { MainButtonProps } from './types'
 
 const MainButton: React.FC<MainButtonProps> = (props) => {
@@ -9,9 +8,12 @@ const MainButton: React.FC<MainButtonProps> = (props) => {
         props.onSave && props.onSave();
     }
     return (
-        <MainButtonContainer isCart={!!props.onSave} onClick={handleClick} type="submit" isForm={props.isForm}>
+        <MainButtonContainer
+            isNewBet={!!props.onNewBet} isCart={!!props.onSave}
+            onClick={handleClick} type="submit" isForm={props.isForm}
+        >
             <MainButtonText>{props.children}</MainButtonText>
-            <MainButtonArrow src={props.onSave ? rightArrowSaveSvg : rightArrowSvg} alt="right arrow" />
+            <MainButtonArrow src={props.onSave ? rightArrowSave : rightArrow} alt="right arrow" />
         </MainButtonContainer>
     )
 }

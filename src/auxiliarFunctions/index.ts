@@ -9,3 +9,12 @@ export const generateArray = (range: number) => {
 export const generateRandomNumber = (min: number, max: number): number => {
   return Math.round(Math.random() * (max - min) + min);
 };
+
+export const sameValues = (arr1: number[], arr2: number[]): boolean => {
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr1[i] !== arr2[i]) {
+      return false;
+    }
+  }
+  return true;
+};
