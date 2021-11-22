@@ -3,9 +3,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { gameActions } from '@store/gameSlice/index';
 import { RootState } from "@store/index";
 import { useHistory } from "react-router";
-import PatternButton from "@UI/PatternButton";
-import MainButton from "@UI/MainButton";
-import { AreaFilterContainer, FilterButtons, RecentGamesText, FilterText, GameButtonsArea } from './styles'
+import { MainButton, PatternButton } from "@UI/index";
+
+import {
+    AreaFilterContainer, FilterButtons,
+    RecentGamesText, FilterText, GameButtonsArea
+} from './styles'
 
 const AreaFilters: React.FC = (props) => {
     const dispatch = useDispatch();

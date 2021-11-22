@@ -1,8 +1,7 @@
-import PageWrapper from '@UI/PageWrapper';
-import DescriptionArea from '@AuthenticationComponents/DescriptionArea'
-import ActionsArea from "@AuthenticationComponents/ActionsArea";
+import { PageWrapper } from '@UI/index';
+import { DescriptionArea, ActionsArea } from '@AuthenticationComponents/index'
 
-const LoginPage: React.FC = () => {
+const Login: React.FC = () => {
     return (
         <PageWrapper isCentered>
             <DescriptionArea />
@@ -13,4 +12,4 @@ const LoginPage: React.FC = () => {
     )
 }
 
-export default LoginPage;
+export default Login;

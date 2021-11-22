@@ -1,0 +1,15 @@
+export const lightGreen = "#B5C401";
+export const greenBet = "#27C383";
+export const darkGray = "#707070";
+export const greyPlaceholder = "#9D9D9D";
+export const lightGray = "#868686";
+export const greyBorderForm = "#DDDDDD";
+export const greyBorderCart = "#E2E2E2";
+export const greyBorderInput = "#EBEBEB";
+export const snowWhite = "#F7F7F7";
+export const backgroundGreySave = "#F4F4F4";
+export const Poppins = `"Poppins", sans-serif`;
+export const Roboto = `"Roboto", sans-serif`;
+export const colorResetPassword = "#c1c1c1";
+export const ballColor = "#adc0c4";
+export const redAlert = "#ff6961";

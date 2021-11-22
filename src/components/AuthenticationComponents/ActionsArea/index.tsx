@@ -1,9 +1,7 @@
 import { AuthenticationArea, AuthenticationText } from './styles'
 import { toast } from 'react-toastify';
 import { useHistory } from 'react-router'
-import ButtonSignUp from '../ButtonSignUp'
-import ButtonBack from '../ButtonBack'
-import Form from '../Form'
+import { ButtonSignUp, ButtonBack, Form } from '@AuthenticationComponents/index'
 import { ActionsAreaProps } from './types'
 
 const ActionsArea: React.FC<ActionsAreaProps> = (props) => {

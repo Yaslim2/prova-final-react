@@ -1,16 +1,16 @@
 import { useHistory } from "react-router";
 import { toast } from 'react-toastify'
 import { useSelector, useDispatch } from "react-redux";
-import MainButton from "@UI/MainButton";
+import { Game } from "@store/userSlice/types";
+import { MainButton, Card } from "@UI/index";
+import { CartItem } from "@CartComponents/index";
 import { userActions } from "@store/userSlice";
 import { cartActions } from "@store/cartSlice";
-import { Game } from "@store/userSlice/types";
 import { RootState } from "@store/index";
-import { convertToReal } from '@auxiliarFunctions/index'
+import { convertToReal } from "@helpers/index";
 import { gameActions } from "@store/gameSlice";
-import Card from "@UI/Card";
-import CartItem from "../CartItem";
-import emptyCartSvg from '@assets/img/empty-cart.png';
+import { emptyCartImg } from '@assets/img';
+
 import {
     CartItemsArea, EmptyCartText, EmptyCartArea,
     EmptyCartImg, CartArea, ContainerCart,
@@ -50,7 +50,7 @@ const Cart: React.FC = (props) => {
     }
     const emptyCart =
         <EmptyCartArea>
-            <EmptyCartImg src={emptyCartSvg} alt="" />
+            <EmptyCartImg src={emptyCartImg} alt="" />
             <EmptyCartText>No items in your cart...</EmptyCartText>
             <EmptyCartText>Add an item!</EmptyCartText>
         </EmptyCartArea>

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { lightGray } from "src/shared/themes";
 import { AfterImgTrashProps, GameTypeTextProps } from "./types";
 
 export const ItemArea = styled.div`
@@ -36,7 +36,7 @@ export const DetailGameArea = styled.div`
 `;
 
 export const NumberGameText = styled.p`
-  color: #868686;
+  color: ${lightGray};
   font-size: 15px;
   font-weight: bold;
 `;
@@ -58,5 +58,5 @@ export const GamePriceText = styled.p`
   font-size: 16px;
   font-weight: 300;
   font-style: normal;
-  color: #868686;
+  color: ${lightGray};
 `;

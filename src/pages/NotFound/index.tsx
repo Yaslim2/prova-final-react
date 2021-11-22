@@ -1,4 +1,4 @@
-import NotFoundAlert from "@NotFoundComponents/NotFoundAlert";
+import { NotFoundAlert } from "@NotFoundComponents/index";
 const NotFound: React.FC = () => {
     return <NotFoundAlert />;
 }

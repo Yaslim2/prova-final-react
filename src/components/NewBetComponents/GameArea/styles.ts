@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { lightGray } from "src/shared/themes";
 export const GameContainer = styled.div`
   margin-top: 30px;
   @media (max-width: 768px) {
@@ -18,7 +19,7 @@ export const ChooseAGameText = styled.p`
   font-size: 17px;
   font-weight: bold;
   margin-top: 25px;
-  color: #868686;
+  color: ${lightGray};
 `;
 
 export const AreaGameButtons = styled.div`
@@ -29,7 +30,7 @@ export const AreaGameButtons = styled.div`
 `;
 
 export const FillYourBetText = styled.h3`
-  color: #868686;
+  color: ${lightGray};
   font-size: 17px;
 `;
 

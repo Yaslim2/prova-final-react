@@ -1,3 +1,4 @@
+import { lightGray, greyBorderInput } from "src/shared/themes";
 import styled from "styled-components";
 import { AreaFilterContainerProps } from "./types";
 export const AreaFilterContainer = styled.div<AreaFilterContainerProps>`
@@ -10,7 +11,7 @@ export const AreaFilterContainer = styled.div<AreaFilterContainerProps>`
     display: ${(props) => (props.isToggle ? "none" : "flex")};
     padding: 8px 50px;
     flex-direction: column;
-    border-bottom: 2px solid #ebebeb;
+    border-bottom: 2px solid ${greyBorderInput};
   }
 `;
 
@@ -44,7 +45,7 @@ export const RecentGamesText = styled.h1`
 export const FilterText = styled.p`
   margin-left: 25px;
   text-align: center;
-  color: #868686;
+  color: ${lightGray};
   @media (max-width: 768px) {
     margin: 0;
   }

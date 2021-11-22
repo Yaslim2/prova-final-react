@@ -1,8 +1,5 @@
-import AreaFilters from "@RecentGamesComponents/AreaFilters";
-import NavBar from "@UI/NavBar";
-import PageWrapper from "@UI/PageWrapper"
-import GamesHistory from "@RecentGamesComponents/GamesHistory";
-
+import { AreaFilters, GamesHistory } from "@RecentGamesComponents/index";
+import { NavBar, PageWrapper } from "@UI/index";
 
 const RecentGames: React.FC = () => {
 

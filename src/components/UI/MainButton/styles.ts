@@ -1,15 +1,16 @@
 import styled from "styled-components";
 import { MainButtonContainerProps } from "./types";
+import { lightGreen, greenBet, Poppins } from "src/shared/themes";
 
 export const MainButtonContainer = styled.button<MainButtonContainerProps>`
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${(props) => (props.isForm || props.isNewBet ? "#b5c401" : "#27C383")};
+  color: ${(props) => (props.isForm || props.isNewBet ? lightGreen : greenBet)};
   border: none;
   background: none;
-  font-family: "Poppins", sans-serif;
+  font-family: ${Poppins};
   font-weight: bold;
   font-style: italic;
   padding: ${(props) => (props.isForm ? "35px" : 0)};

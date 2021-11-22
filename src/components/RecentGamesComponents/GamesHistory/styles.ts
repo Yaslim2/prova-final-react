@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import { ContainerGamesHistoryProps } from "./types";
+import { lightGray, lightGreen } from "src/shared/themes";
 
 export const ContainerGamesHistory = styled.div<ContainerGamesHistoryProps>`
   padding: 20px 50px;
   flex-direction: column;
   display: flex;
   flex-direction: row;
-  color: #868686;
+  color: ${lightGray};
   @media (max-width: 768px) {
     display: ${(props) => (props.isToggle ? "none" : "flex")};
   }
@@ -40,7 +41,7 @@ export const EmptyGameImg = styled.img`
 export const EmptyGameText = styled.p`
   font-size: 17px;
   font-weight: bold;
-  color: #808080;
+  color: ${lightGray};
   margin-top: 20px;
   text-align: center;
 
@@ -50,5 +51,5 @@ export const EmptyGameText = styled.p`
 `;
 
 export const EmptyGameTextSpan = styled.span`
-  color: #b5c401;
+  color: ${lightGreen};
 `;

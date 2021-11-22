@@ -1,9 +1,9 @@
 import { NotFoundContainer, AlertTriangleImg, NotFoundText } from './styles'
-import alertTriangleSvg from '@assets/img/alert-triangle.svg'
+import { alertTriangleSvg } from '@assets/img'
 const NotFoundAlert: React.FC = () => {
     return <NotFoundContainer>
         <AlertTriangleImg src={alertTriangleSvg} alt="" />
-        <NotFoundText>Página não encontrada</NotFoundText>
+        <NotFoundText>Page not found!</NotFoundText>
     </NotFoundContainer>
 }
 

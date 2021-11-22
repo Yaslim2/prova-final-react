@@ -70,6 +70,31 @@ const userSlice = createSlice({
         ...action.payload.games,
       ];
     },
+    updateAccount: (state, action: PayloadAction<SignUpProps>) => {
+      const existingUser = state.registeredUsers.find(
+        (user) => user.email === action.payload.email
+      );
+      if (!IsEmail.validate(action.payload.email)) {
+        throw new Error("Invalid email, please enter a valid email.");
+      }
+      if (existingUser && existingUser.email !== state.actualUser?.email) {
+        throw new Error("Email already registered, try using another email.");
+      }
+      if (action.payload.password.length < 5) {
+        throw new Error(
+          "Invalid password, please enter a password of at least 5 digits."
+        );
+      }
+      if (state.actualUser) {
+        state.registeredUsers = state.registeredUsers.filter(
+          (user) => user.id !== state.actualUser!.id
+        );
+        state.actualUser!.name = action.payload.name;
+        state.actualUser!.email = action.payload.email;
+        state.actualUser!.password = action.payload.password;
+        state.registeredUsers = [...state.registeredUsers, state.actualUser];
+      }
+    },
   },
 });
 

@@ -1,4 +1,4 @@
-import trashSvg from '@assets/img/trash.svg'
+import { trashSvg } from '@assets/img'
 import { useDispatch } from 'react-redux'
 import { cartActions } from '@store/cartSlice'
 import {

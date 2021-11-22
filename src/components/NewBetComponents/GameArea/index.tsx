@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { gameActions } from '@store/gameSlice'
 import { cartActions } from '@store/cartSlice'
 import { RootState } from '@store/index'
-import PatternButton from '@UI/PatternButton'
-import Balls from '../Balls'
-import ActionButton from '../ActionButton'
+import { PatternButton } from '@UI/index'
+import { Balls, ActionButton } from '@NewBetComponents/index'
+
 import {
     LeftActionsButtons, ActionsButtonsArea, GameContainer,
     BallsArea, BetText, SpanBetText, ChooseAGameText, AreaGameButtons,

@@ -3,9 +3,9 @@ import {
     EmptyGameImg, EmptyGameText, EmptyGameTextSpan
 } from './styles'
 import { useSelector } from 'react-redux';
-import boxImg from '@assets/img/box.png'
+import { boxEmptyImg } from '@assets/img'
 import { RootState } from '@store/index';
-import GameItem from '../GameItem';
+import { GameItem } from '@RecentGamesComponents/index';
 
 const GamesHistory: React.FC = (props) => {
     const userGames = useSelector((state: RootState) => state.user.actualUser?.games);
@@ -28,7 +28,7 @@ const GamesHistory: React.FC = (props) => {
     const emptyGame =
         (
             <EmptyGameArea>
-                <EmptyGameImg src={boxImg} alt="" />
+                <EmptyGameImg src={boxEmptyImg} alt="" />
                 <EmptyGameText>
                     No games around here...
                 </EmptyGameText>

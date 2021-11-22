@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { redAlert } from "src/shared/themes";
 export const NotFoundContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -23,7 +23,7 @@ export const AlertTriangleImg = styled.img`
 export const NotFoundText = styled.h1`
   font-size: 60px;
   text-align: center;
-  color: #ff6961;
+  color: ${redAlert};
   @media (max-width: 768px) {
     font-size: 40px;
   }

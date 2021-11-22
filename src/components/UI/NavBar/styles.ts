@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { NavBarContainerProps } from "./types";
+import { darkGray, lightGreen } from "src/shared/themes";
 
 export const Header = styled.header`
-  color: #707070;
+  color: ${darkGray};
   font-weight: bold;
   border-bottom: 2px solid #ebebeb;
   @media (max-width: 768px) {
@@ -31,7 +32,7 @@ export const NavBarContainer = styled.nav<NavBarContainerProps>`
 `;
 
 export const CustomizedLink = styled(Link)`
-  color: #707070;
+  color: ${darkGray};
   text-decoration: none;
   font-size: 20px;
   @media (max-width: 768px) {
@@ -62,7 +63,7 @@ export const LogoText = styled.h1`
     content: "";
     width: 107px;
     height: 7px;
-    background-color: #b5c401;
+    background-color: ${lightGreen};
     display: block;
     border-radius: 6px;
   }
@@ -72,7 +73,7 @@ export const LogoText = styled.h1`
       content: "";
       width: 130px;
       height: 7px;
-      background-color: #b5c401;
+      background-color: ${lightGreen};
       display: block;
       border-radius: 6px;
     }

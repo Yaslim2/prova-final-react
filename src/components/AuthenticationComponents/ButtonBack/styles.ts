@@ -1,13 +1,14 @@
 import styled from "styled-components";
+import { darkGray, Poppins } from "src/shared/themes";
 export const BackButton = styled.button`
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #707070;
+  color: ${darkGray};
   border: none;
   background: none;
-  font-family: "Poppins", sans-serif;
+  font-family: ${Poppins};
   font-weight: bold;
   font-style: italic;
   width: 100%;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { backgroundGreySave, greyBorderCart } from "src/shared/themes";
 
 export const CartArea = styled.div`
   padding: 20px 50px;
@@ -12,8 +13,8 @@ export const CartItemsArea = styled.div`
   max-width: 352px;
   max-height: 350px;
   overflow-y: auto;
-  border-top: 2px solid #ebebeb;
-  border-bottom: 2px solid #ebebeb;
+  border-top: 2px solid ${greyBorderCart};
+  border-bottom: 2px solid ${greyBorderCart};
   @media (max-width: 768px) {
     max-height: 350px;
     width: 100%;
@@ -52,8 +53,8 @@ export const AreaButtonSave = styled.div`
   align-items: center;
   padding: 27px 0;
   width: 100%;
-  background-color: #f4f4f4;
-  border-top: 2px solid #e2e2e2;
+  background-color: ${backgroundGreySave};
+  border-top: 2px solid ${greyBorderCart};
   text-align: center;
   @media (max-width: 768px) {
     padding: 0;

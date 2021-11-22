@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ActionButtonContainerProps } from "./types";
+import { Roboto, greenBet } from "src/shared/themes";
 
 export const ActionButtonContainer = styled.button<ActionButtonContainerProps>`
   display: flex;
@@ -8,14 +9,14 @@ export const ActionButtonContainer = styled.button<ActionButtonContainerProps>`
     props.isAddToCart ? "space-around" : "center"};
   align-items: center;
   font-size: 16px;
-  font-family: "Roboto", sans-serif;
+  font-family: ${Roboto};
   font-weight: bold;
   width: ${(props) => (props.isAddToCart ? "209px" : "164px")};
   height: 52px;
   border-radius: 10px;
-  border: 1px solid #27c383;
-  background-color: ${(props) => (props.isAddToCart ? "#27c383" : "#fff")};
-  color: ${(props) => (props.isAddToCart ? "#fff" : "#27c383")};
+  border: 1px solid ${greenBet};
+  background-color: ${(props) => (props.isAddToCart ? greenBet : "#fff")};
+  color: ${(props) => (props.isAddToCart ? "#fff" : greenBet)};
   @media (max-width: 768px) {
     height: 52px;
     width: ${(props) => (props.isAddToCart ? "180px" : "140px")};

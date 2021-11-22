@@ -3,6 +3,8 @@ import {
     DescriptionContainerArea, TextDescriptionHigher,
     DescriptionTextArea, TextDescription
 } from './styles'
+import { lightGreen } from 'src/shared/themes';
+
 const DescriptionArea: React.FC = (props) => {
     return (
         <DescriptionContainerArea>
@@ -11,7 +13,7 @@ const DescriptionArea: React.FC = (props) => {
                 <TextDescription>Greatest</TextDescription>
                 <TextDescription>App</TextDescription>
             </DescriptionTextArea>
-            <PatternButton color="#B5C401" isActive>for</PatternButton>
+            <PatternButton color={lightGreen} isActive>for</PatternButton>
             <TextDescriptionHigher>LOTTERY</TextDescriptionHigher>
         </DescriptionContainerArea>
     )

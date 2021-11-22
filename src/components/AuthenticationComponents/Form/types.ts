@@ -3,4 +3,5 @@ export type FormProps = {
   isLogin?: boolean;
   isResetPassword?: boolean;
   isSignUp?: boolean;
+  isAccount?: boolean;
 };

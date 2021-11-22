@@ -3,9 +3,9 @@ import { toast } from 'react-toastify';
 import { useHistory } from 'react-router'
 import { useDispatch } from 'react-redux'
 import { userActions } from '@store/userSlice'
-import Card from '@UI/Card'
-import MainButton from '@UI/MainButton'
-import ButtonResetPassword from '../ButtonResetPassword'
+
+import { MainButton, Card } from '@UI/index'
+import { ButtonResetPassword } from '@AuthenticationComponents/index'
 import { FormProps } from './types'
 import { InputForm, FormItself } from './styles'
 
@@ -14,7 +14,7 @@ import { InputForm, FormItself } from './styles'
 const Form: React.FC<FormProps> = (props) => {
     const history = useHistory();
     const dispatch = useDispatch();
-    const { logIn, signUp } = userActions;
+    const { logIn, signUp, updateAccount } = userActions;
     const nameInputRef = useRef<HTMLInputElement>(null);
     const emailInputRef = useRef<HTMLInputElement>(null);
     const passwordInputRef = useRef<HTMLInputElement>(null);
@@ -23,7 +23,7 @@ const Form: React.FC<FormProps> = (props) => {
         const email = emailInputRef.current!.value;
         const password = passwordInputRef.current!.value;
         if (email.trim() === '' || password.trim() === "") {
-            toast.warn('Preencha os dados do formulário!');
+            toast.warn('Fill in the form data!');
             return;
         }
         try {
@@ -34,12 +34,29 @@ const Form: React.FC<FormProps> = (props) => {
         }
     }
 
+    const handleChangeAccount = () => {
+        const name = nameInputRef.current!.value;
+        const email = emailInputRef.current!.value;
+        const password = passwordInputRef.current!.value;
+        if (name.trim() === '' || email.trim() === '' || password.trim() === "") {
+            toast.warn('Fill in the form data!');
+            return;
+        }
+        try {
+            dispatch(updateAccount({ name, email, password }));
+            toast.success('Account updated successfully!');
+            history.push('/user/recent-games');
+        } catch (e: any) {
+            toast.warn(e.message)
+        }
+    }
+
     const handleSignUp = () => {
         const name = nameInputRef.current!.value;
         const email = emailInputRef.current!.value;
         const password = passwordInputRef.current!.value;
         if (name.trim() === '' || email.trim() === '' || password.trim() === "") {
-            toast.warn('Preencha os dados do formulário!');
+            toast.warn('Fill in the form data!');
             return;
         }
         try {
@@ -59,6 +76,7 @@ const Form: React.FC<FormProps> = (props) => {
         props.isLogin && handleLogin();
         props.isSignUp && handleSignUp();
         props.isResetPassword && handleResetPassword();
+        props.isAccount && handleChangeAccount();
     }
 
     const signUpInputs = <>
@@ -82,7 +100,7 @@ const Form: React.FC<FormProps> = (props) => {
         <Card>
             <FormItself action="" onSubmit={handleSubmitForm}>
                 {props.isLogin && loginInputs}
-                {props.isSignUp && signUpInputs}
+                {props.isSignUp || props.isAccount ? signUpInputs : null}
                 {props.isResetPassword && resetPasswordInputs}
                 <MainButton isForm>
                     {props.textButton}

@@ -1,10 +1,10 @@
 import { BackButton, BackButtonArrow, BackButtonText } from './styles'
-import leftArrowSvg from '@assets/img/arrow-left.svg'
+import { arrowLeftSvg } from '@assets/img';
 import { ButtonBackProps } from './types'
 const ButtonBack: React.FC<ButtonBackProps> = (props) => {
     return (
         <BackButton onClick={props.onBackPage}>
-            <BackButtonArrow src={leftArrowSvg} alt="" />
+            <BackButtonArrow src={arrowLeftSvg} alt="" />
             <BackButtonText>Back</BackButtonText>
         </BackButton>
     )

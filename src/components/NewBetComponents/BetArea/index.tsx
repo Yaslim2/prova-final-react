@@ -1,5 +1,5 @@
-import Cart from '@CartComponents/Cart'
-import GameArea from '../GameArea'
+import { Cart } from '@CartComponents/index'
+import { GameArea } from '@NewBetComponents/index'
 import { useSelector } from 'react-redux'
 import { BetContainer, AreaGames } from './styles'
 import { RootState } from '@store/index'

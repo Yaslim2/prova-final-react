@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { colorResetPassword, Poppins } from "src/shared/themes";
 
 export const ResetPasswordButton = styled(Link)`
   text-decoration: none;
@@ -7,10 +8,10 @@ export const ResetPasswordButton = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  color: #c1c1c1;
+  color: ${colorResetPassword};
   border: none;
   background: none;
-  font-family: "Poppins", sans-serif;
+  font-family: ${Poppins};
   width: 100%;
   margin-top: 15px;
   padding: 0px 20px;

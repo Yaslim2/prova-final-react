@@ -350,9 +350,10 @@ module.exports = function (webpackEnv) {
         "@pages": path.resolve(__dirname, "../src/pages"),
         "@store": path.resolve(__dirname, "../src/store"),
         "@assets": path.resolve(__dirname, "../src/assets"),
-        "@auxiliarFunctions": path.resolve(
+        "@helpers": path.resolve(__dirname, "../src/shared/helpers"),
+        "@AccountComponents": path.resolve(
           __dirname,
-          "../src/auxiliarFunctions"
+          "../src/components/AccountComponents"
         ),
         // Support React Native Web
         // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
