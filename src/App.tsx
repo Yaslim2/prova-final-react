@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const App: React.FC = () => {
   return <>
     <Routes />
-    <ToastContainer theme="colored" limit={3} />
+    <ToastContainer theme="colored" position='top-center' limit={3} />
   </>;
 }
 
