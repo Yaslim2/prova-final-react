@@ -26,9 +26,6 @@ declare global {
       logInAnUser: (email?: string, password?: string) => void;
       logOutAnUser: () => void;
       changeAccountData: () => void;
-      checkEmail: (email: string) => void;
-      checkPassword: (password: string) => void;
-      checkName: (name: string) => void;
       enterNewBetPage: () => void;
       enterAccountPage: () => void;
       addMegaSenaToCart: () => void;
@@ -49,7 +46,7 @@ before(() => {
   Cypress.env("password", "12345678");
 
   Cypress.env("newName", "Manoel");
-  Cypress.env("newEmail", "manoel@manoel.com");
+  Cypress.env("newEmail", "@manoel.com");
   Cypress.env("newPassword", "123456");
 
   Cypress.env("gameSelected", "Lotofácil");

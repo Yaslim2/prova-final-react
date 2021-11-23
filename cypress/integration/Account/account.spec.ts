@@ -8,12 +8,12 @@ describe("Account Tests", () => {
     cy.enterAccountPage();
   });
 
-  it.skip("Must be able to edit the credentials of the account", () => {
+  it("Must be able to edit the credentials of the account", () => {
     cy.enterAccountPage();
     cy.changeAccountData();
   });
 
-  it("Must be able to login after change the credentials", () => {
+  it.skip("Must be able to login after change the credentials", () => {
     cy.enterAccountPage();
     cy.changeAccountData();
     cy.logOutAnUser();

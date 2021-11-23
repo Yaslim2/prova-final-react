@@ -9,7 +9,6 @@ describe("Make Bets Tests", () => {
 
   it("Must be able to make random bets of any games", () => {
     cy.enterNewBetPage();
-
     cy.addLotofacilToCart();
     cy.addMegaSenaToCart();
     cy.addQuinaToCart();
