@@ -57,6 +57,7 @@ Cypress.Commands.add(
 );
 
 Cypress.Commands.add("logOutAnUser", () => {
+  cy.get(".sc-jRQBWg").should("exist");
   cy.get(".sc-jrQzAO").click();
   cy.url().should("eq", "http://localhost:3000/");
 });
