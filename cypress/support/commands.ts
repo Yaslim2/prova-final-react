@@ -1,6 +1,5 @@
 Cypress.Commands.add("createAnUser", () => {
-  cy.visit("localhost:3000/sign-up");
-  cy.url().should("include", "/sign-up");
+  cy.enterSignUpPage();
 
   cy.get('[placeholder="Name"]').type(Cypress.env("name"));
   cy.get('[placeholder="Email"]').type(Cypress.env("email"));
@@ -9,6 +8,42 @@ Cypress.Commands.add("createAnUser", () => {
   cy.get(".sc-gsDKAQ").click();
 
   cy.url().should("eq", "http://localhost:3000/");
+});
+
+Cypress.Commands.add("createAnUserWithInvalidEmail", () => {
+  cy.enterSignUpPage();
+
+  cy.get('[placeholder="Name"]').type(Cypress.env("name"));
+  cy.get('[placeholder="Email"]').type(Cypress.env("invalidEmail"));
+  cy.get('[type="password"]').type(Cypress.env("password"));
+
+  cy.get(".sc-gsDKAQ").click();
+  cy.get(".Toastify__toast-body > :nth-child(2)").should("exist");
+  cy.url().should("include", "/sign-up");
+});
+
+Cypress.Commands.add("createAnUserWithInvalidPassword", () => {
+  cy.enterSignUpPage();
+
+  cy.get('[placeholder="Name"]').type(Cypress.env("name"));
+  cy.get('[placeholder="Email"]').type(Cypress.env("email"));
+  cy.get('[type="password"]').type(Cypress.env("invalidPassword"));
+
+  cy.get(".sc-gsDKAQ").click();
+  cy.get(".Toastify__toast-body > :nth-child(2)").should("exist");
+  cy.url().should("include", "/sign-up");
+});
+
+Cypress.Commands.add("createAnUserWithoutData", () => {
+  cy.enterSignUpPage();
+  cy.get(".sc-gsDKAQ").click();
+  cy.get(".Toastify__toast-body > :nth-child(2)").should("exist");
+  cy.url().should("include", "/sign-up");
+});
+
+Cypress.Commands.add("enterSignUpPage", () => {
+  cy.visit("localhost:3000/sign-up");
+  cy.url().should("include", "/sign-up");
 });
 
 Cypress.Commands.add(
@@ -23,6 +58,16 @@ Cypress.Commands.add(
     cy.url().should("eq", "http://localhost:3000/user/recent-games");
   }
 );
+
+Cypress.Commands.add("logInAnInvalidUser", () => {
+  cy.url().should("eq", "http://localhost:3000/");
+  cy.get('[type="text"]').type(Cypress.env("newEmail"));
+  cy.get('[type="password"]').type(Cypress.env("newPassword"));
+
+  cy.get(".sc-gsDKAQ").click();
+  cy.get(".Toastify__toast-body > :nth-child(2)").should("exist");
+  cy.url().should("eq", "http://localhost:3000/");
+});
 
 Cypress.Commands.add("logOutAnUser", () => {
   cy.get(".sc-jRQBWg").should("exist");
@@ -63,6 +108,17 @@ Cypress.Commands.add("saveGame", () => {
   });
   cy.get(".sc-efQSVx").click();
   cy.url().should("include", "/user/recent-games");
+});
+
+Cypress.Commands.add("saveAnEmptyGame", () => {
+  cy.url().should("include", "/user/new-bet");
+  cy.get(".sc-efQSVx").should("not.exist");
+});
+
+Cypress.Commands.add("saveInvalidGame", () => {
+  cy.url().should("include", "/user/new-bet");
+  cy.get(".sc-efQSVx").click();
+  cy.get(".Toastify__toast-body > :nth-child(2)").should("exist");
 });
 
 Cypress.Commands.add("selectMegaSena", () => {

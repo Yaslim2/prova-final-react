@@ -3,7 +3,11 @@ describe("Login Tests", () => {
     cy.createAnUser();
   });
 
-  it("Must authenticate a user", () => {
+  it.skip("Must authenticate an existing user", () => {
     cy.logInAnUser();
+  });
+
+  it("Must not authenticate a non-existing user", () => {
+    cy.logInAnInvalidUser();
   });
 });

@@ -23,11 +23,19 @@ declare global {
   namespace Cypress {
     interface Chainable {
       createAnUser: () => void;
+      createAnUserWithInvalidEmail: () => void;
+      createAnUserWithoutData: () => void;
+      createAnUserWithInvalidPassword: () => void;
+      logInAnInvalidUser: () => void;
       logInAnUser: (email?: string, password?: string) => void;
       logOutAnUser: () => void;
+      checkName: (name: string) => void;
+      checkEmail: (email: string) => void;
+      checkPassword: (password: string) => void;
       changeAccountData: () => void;
       enterNewBetPage: () => void;
       enterAccountPage: () => void;
+      enterSignUpPage: () => void;
       addMegaSenaToCart: () => void;
       addLotofacilToCart: () => void;
       addQuinaToCart: () => void;
@@ -35,6 +43,8 @@ declare global {
       selectLotofacil: () => void;
       selectQuina: () => void;
       saveGame: () => void;
+      saveInvalidGame: () => void;
+      saveAnEmptyGame: () => void;
       checkCartTotal: (text: string, max: number) => void;
     }
   }
@@ -46,8 +56,12 @@ before(() => {
   Cypress.env("password", "12345678");
 
   Cypress.env("newName", "Manoel");
-  Cypress.env("newEmail", "@manoel.com");
+  Cypress.env("newEmail", "manoel@manoel.com");
   Cypress.env("newPassword", "123456");
+
+  Cypress.env("invalidEmail", "@gmail.com");
+  Cypress.env("invalidPassword", "1234");
+  Cypress.env("invalidName", "      ");
 
   Cypress.env("gameSelected", "Lotofácil");
 });

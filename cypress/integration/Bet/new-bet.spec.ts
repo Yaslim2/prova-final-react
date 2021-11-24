@@ -3,7 +3,8 @@ describe("Make Bets Tests", () => {
     cy.createAnUser();
     cy.logInAnUser();
   });
-  it("Must be able to enter on the new-bet page", () => {
+
+  it.skip("Must be able to enter on the new-bet page", () => {
     cy.enterNewBetPage();
   });
 
